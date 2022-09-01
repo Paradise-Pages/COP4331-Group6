@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html lang="en"></html>
+  <head>
+    <link rel="stylesheet" href="css/signup.css"/>
+    <script type="text/javascript" src="js/code.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Island Moments' rel='stylesheet'>
+ </head>
+ <body>
+     <a href="index.html"><img id="logo" src="images/icon.png"></a>
+     <button onclick="location.href = 'signup.html';" class ="btn">signup</button>
+     <button onclick="location.href = 'login.html';" class ="btn">login</button>
+ </body>
+<div class="form">
+    <form class="register-form" action = "PHP/signup.php" method="POST">
+      <input type="text" id="loginName" placeholder="username" name = "username"/>
+      <input type="password" id="loginPassword" placeholder="password" name ="password"/>
+      <input type="password" id="confirmPassword" placeholder="confirm password" name="confirm"/>
+      <!--Need to write a doSignup() method in js to call here-->
+      <button type="button" id="loginButton" class="buttons" onclick="doLogin();">submit</button>
+      <span class="text" style="color:rgb(203, 55, 21);" id="loginResult"></span>
+      <p class="text">Already registered? <a href="login.html">Login</a></p>
+    </form>
+  </div>
+  </html>
