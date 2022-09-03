@@ -9,6 +9,7 @@
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
 .form input {
     border-radius: 17px;
     font-family: 'Montserrat';
@@ -32,6 +33,7 @@
     padding: 15px;
     color: #FFFFFF;
     font-size: 14px; 
+    position: absolute;
 }
 .form button {
     border-radius: 17px;
@@ -105,5 +107,13 @@ body {
 @media only screen and (max-width: 767px) {
     body {
         background-image: url('../images/backgroundmobile.png') ; 
+
+        /*allows form to resize */
+        flex-direction: column;
+        max-width: 300px;
+        height: auto;
+        position: relative;
+        margin: auto;
     }
+
       }
