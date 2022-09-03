@@ -105,7 +105,8 @@ body {
 @media only screen and (max-width: 767px) {
     body {
         background-image: url('../images/backgroundmobile.png') ;
-        /*allows form to resize */
+        
+        /*form resizing */
         flex-direction: column;
         max-width: 300px;
         height: auto;
