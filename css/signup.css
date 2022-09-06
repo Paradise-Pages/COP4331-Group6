@@ -65,7 +65,7 @@
 
 /* body formatting */
 body {
-    background-color: #F2B02F;
+    background-color: #F3B02E;
     background-image: url('../images/background.png') ; 
     background-position: center center;
     background-repeat: no-repeat;
@@ -104,8 +104,7 @@ body {
 /* For mobile devices */
 @media only screen and (max-width: 767px) {
     body {
-        background-image: url('../images/backgroundmobile.png') ;
-        
+        background-image: url('../images/backgroundmobile.png') ;        
         /*form resizing */
         flex-direction: column;
         max-width: 300px;
@@ -113,4 +112,4 @@ body {
         position: relative;
         margin: auto;
     }
-      }
+}
