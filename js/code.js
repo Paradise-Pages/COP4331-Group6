@@ -46,7 +46,63 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "color.html";
+				window.location.href = "contacts.html";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+}
+
+function doSignup()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+	
+	let firstN = document.getElementById("firstName").value;
+	let lastN = document.getElementById("lastName").value;
+	let phoneNumber = document.getElementById("phoneNumber").value;
+	let emailAddress = document.getElementById("emailAddress").value;
+	let password = document.getElementById("password").value;
+//	var hash = md5( password );
+	
+	document.getElementById("loginResult").innerHTML = "";
+
+	let tmp = {firstN:firstN,lastN:lastN,phoneNumber:phoneNumber,emailAddress:emailAddress,password:password};
+//	var tmp = {login:login,password:hash};
+	let jsonPayload = JSON.stringify( tmp );
+	
+	let url = urlBase + '/Signup.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				let jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+				if( userId > 1 )
+				{		
+					document.getElementById("loginResult").innerHTML = "Account already exists";
+					return;
+				}
+		
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+
+				saveCookie();
+	
+				window.location.href = "contacts.html";
 			}
 		};
 		xhr.send(jsonPayload);

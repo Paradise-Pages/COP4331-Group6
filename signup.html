@@ -17,11 +17,13 @@
  </body>
 <div class="form">
     <form class="register-form" action = "PHP/signup.php" method="POST">
-      <input type="text" id="loginName" placeholder="username" name = "username"/>
-      <input type="password" id="loginPassword" placeholder="password" name ="password"/>
-      <input type="password" id="confirmPassword" placeholder="confirm password" name="confirm"/>
-      <!--Need to write a doSignup() method in js to call here-->
-      <button type="button" id="loginButton" class="buttons" onclick="doLogin();">submit</button>
+      <input type="text" id="firstName" placeholder="first&nbsp;name" name = "firstName"/>
+      <input type="text" id="lastName" placeholder="last&nbsp;name" name ="lastName"/>
+      <input type="text" id="phoneNumber" placeholder="phone&nbsp;number" name="phoneNumber"/>
+      <input type="text" id="emailAddress" placeholder="email&nbsp;address" name="emailAddress"/>
+      <input type="password" id="password" placeholder="password" name="password"/>
+      <!--Do we need a userId field?-->
+      <button type="button" id="loginButton" class="buttons" onclick="doSignup();">submit</button>
       <span class="text" style="color:rgb(203, 55, 21);" id="loginResult"></span>
       <p class="text">Already registered? <a href="login.html">Login</a></p>
     </form>
