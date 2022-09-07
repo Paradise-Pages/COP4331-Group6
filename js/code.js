@@ -66,14 +66,13 @@ function doSignup()
 	
 	let firstN = document.getElementById("firstName").value;
 	let lastN = document.getElementById("lastName").value;
-	let phoneNumber = document.getElementById("phoneNumber").value;
-	let emailAddress = document.getElementById("emailAddress").value;
+	let login = document.getElementById("login").value;
 	let password = document.getElementById("password").value;
 //	var hash = md5( password );
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	let tmp = {firstN:firstN,lastN:lastN,phoneNumber:phoneNumber,emailAddress:emailAddress,password:password};
+	let tmp = {firstN:firstN,lastN:lastN,login:login,password:password};
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
