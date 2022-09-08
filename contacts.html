@@ -3,6 +3,7 @@
 	<title>Paradise Pages Contacts Page</title>
 	<script type="text/javascript" src="js/code.js"></script>
 	<script src="https://kit.fontawesome.com/ca0c8f943c.js" crossorigin="anonymous"></script>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href="css/styles.css" rel="stylesheet">	
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 	
@@ -16,38 +17,45 @@
 </head>
 <body>
 
-<h1 id="title">COP 4331 LAMP Stack Demo</h1>
+<!-- page content-->
+<div class="content">
+	<h1 id="title">COP 4331 LAMP Stack Demo</h1>
 
-<div id="loggedInDiv">
-	<span id="userName"></span><br />
-	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+	<div id="loggedInDiv">
+		<span id="userName"></span><br />
+		<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+	</div>
+
+	<div id="accessUIDiv">
+		<br />
+
+		<input type="text" id="searchText" placeholder="Color To Search For"/>
+		<button type="button" id="searchColorButton" class="buttons" onclick="searchColor();"> Search Color </button><br />
+		<span id="colorSearchResult"></span>
+		<p id="colorList">
+		</p><br /><br />
+
+		<input type="text" id="colorText" placeholder="Color To Add">
+		<button type="button" id="addColorButton" class="buttons" onclick="addColor();"> Add Color </button><br />
+		<span id="colorAddResult"></span>
+	</div>
 </div>
-
-<div id="accessUIDiv">
-	<br />
-
-	<input type="text" id="searchText" placeholder="Color To Search For"/>
-	<button type="button" id="searchColorButton" class="buttons" onclick="searchColor();"> Search Color </button><br />
-	<span id="colorSearchResult"></span>
-	<p id="colorList">
-	</p><br /><br />
-
-	<input type="text" id="colorText" placeholder="Color To Add">
-	<button type="button" id="addColorButton" class="buttons" onclick="addColor();"> Add Color </button><br />
-	<span id="colorAddResult"></span>
-</div>
-
-<!--ADD CONTACTS ICON-->
-<!--<i class="fa-solid fa-user-plus"></i>-->
 
 <!--side navi-->
 <div class="sidenav">
-	<a href="###">Logout</a>
-	<a href="###">About Us</a>
-	<a href="###">Delete</a>
-	<a href="###">Edit</a>
+	<a class="active" href="#Contacts">Contacts</a>
+	<a href="#Logout">Logout</a>
+	<a href="#About">About Us</a>
+	<!--
+	a button onclick="###">Delete</button>
+	<a button onclick="###">Edit</button>
+	-->
 </div>
-<!-- COLUMNS-->
+
+<!--ADD CONTACTS ICON
+<i class="fa-solid fa-user-plus"></i>-->
+
+<!--TODO: COLUMNS
 <div class="section group">
 	<div class="col span_1_of_12">
 	
@@ -98,6 +106,7 @@
 
 	</div>
 </div>
+-->
 
 </body>
 </html>
