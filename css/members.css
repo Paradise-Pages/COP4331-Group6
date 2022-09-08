@@ -1,0 +1,156 @@
+/* body formatting */
+body {
+    background-color: #F3B02E;
+    background-image: url('../images/background2.png'); 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* logo formatting */
+#logo {
+    padding-left: 1%;
+    padding-top: 1%;
+    width: 70%;
+    height: 70%;
+    left: 0;
+    top: 0;
+}
+
+/* button formatting */
+.btn {
+    color: #007D2F;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 2.3vw;
+    background:none;
+    border:none;
+    cursor: pointer;
+    padding:0.3em 1.2em;
+    margin:0.6em 0.3em 0.3em 0;
+    float: right;
+}
+.btn:hover{
+    color:#6ccf55;
+}
+
+/* Container w/main body of text and images */
+.container {
+    overflow-y: scroll;
+    width: 100%;
+}
+/* grid w/images and names */
+.grid-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-left: 250px;
+    margin-right: 50px;
+}
+.grid-item {
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Montserrat';
+    color: #007D2F; 
+    padding: 20px 0;
+}
+.grid-item img {
+    width: 45%;
+    height: auto;
+    opacity: 80%;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 767px) {
+    body {
+        background-image: url('../images/backgroundmobile2.png') ; 
+    }
+}
+
+/*side navigation menu*/
+.sidenav {
+    width: 264px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0px;
+    top: 0px;
+    overflow: auto; /*disables horizontal scroll*/
+    position: fixed; /*scroll bar stays in place when user is scrolling*/
+    background: rgba(155, 188, 115, 0.9);
+}
+/*navigation links*/
+.sidenav a {
+    padding: 10px 0px 15px 0px;
+    display: block;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 44px;
+    color: #007D2F;
+}
+.sidenav a:hover {
+    color:#897261;
+}
+
+/* make sidebar a topbar*/
+@media only screen and (max-width: 700px) {
+	.sidenav
+    {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidenav a{
+        font-size: 25px;
+    }
+    div.content {
+        margin-left: 0;
+    }
+    #logo {
+        padding-left: 1%;
+        padding-top: 1%;
+        width: 30%;
+        height: 30%;
+        left: 0;
+        top: 0;
+    } 
+    .grid-container {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 10px;
+        padding: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
+    } 
+}
+/*displays the bar vertically*/
+@media only screen and (max-width: 400px) {
+	.sidenav a{
+        text-align: center;
+        float:none;
+        font-size: 25px;
+    }
+    #logo {
+        padding-left: 1%;
+        padding-top: 1%;
+        width: 30%;
+        height: 30%;
+        left: 0;
+        top: 0;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 10px;
+        padding: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }  
+}
