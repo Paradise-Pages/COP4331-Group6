@@ -1,29 +1,27 @@
-<html>
+
+<!DOCTYPE html> 
+<html lang="en"></html>
 <head>
 	<title>Paradise Pages Contacts Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/contacts.css"/>
 	<script type="text/javascript" src="js/code.js"></script>
-	<script src="https://kit.fontawesome.com/ca0c8f943c.js" crossorigin="anonymous"></script>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href="css/styles.css" rel="stylesheet">	
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	
+	<link href='https://fonts.googleapis.com/css?family=Island Moments' rel='stylesheet'>
 	<script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() 
 	{
 		readCookie();
 	}, false);
 	</script>
-	
 </head>
 <body>
 
 <!-- page content-->
 <div class="content">
-	<h1 id="title">COP 4331 LAMP Stack Demo</h1>
-
 	<div id="loggedInDiv">
 		<span id="userName"></span><br />
-		<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
 	</div>
 
 	<div id="accessUIDiv">
@@ -43,8 +41,9 @@
 
 <!--side navi-->
 <div class="sidenav">
+	<a href="index.html"><img id="logo" src="images/icon.png"></a>
 	<a class="active" href="#Contacts">Contacts</a>
-	<a href="#Logout">Logout</a>
+	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();">Logout</button>
 	<a href="#About">About Us</a>
 	<!--
 	a button onclick="###">Delete</button>

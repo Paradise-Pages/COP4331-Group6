@@ -1,6 +1,55 @@
+/* body formatting */
+body {
+    background-color: #F3B02E;
+    background-image: url('../images/background2.png'); 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* logo formatting */
+#logo {
+    padding-left: 1%;
+    padding-top: 1%;
+    width: 70%;
+    height: 70%;
+    left: 0;
+    top: 0;
+}
+
+/* button formatting */
+.btn {
+    color: #007D2F;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 2.3vw;
+    background:none;
+    border:none;
+    cursor: pointer;
+    padding:0.3em 1.2em;
+    margin:0.6em 0.3em 0.3em 0;
+    float: right;
+}
+.btn:hover{
+    color:#6ccf55;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 767px) {
+    body {
+        background-image: url('../images/backgroundmobile2.png') ; 
+    }
+}
+/* content from leinecker */
+.content {
+    margin-top: 100px;
+    margin-left: 300px;
+}
+
 /*side navigation menu*/
-.sidenav
-{
+.sidenav {
     width: 264px;
     height: 100%;
     margin: 0;
@@ -11,32 +60,46 @@
     position: fixed; /*scroll bar stays in place when user is scrolling*/
     background: rgba(155, 188, 115, 0.9);
 }
-
 /*navigation links*/
-.sidenav a{
-    position: fixed;
-    width: 225px;
-    height: 37px;
-    left: 58px;
-    top: 294px;
-
+.sidenav a {
+    padding: 10px 0px 15px 0px;
+    display: block;
+    text-align: center;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 36px;
+    font-size: 25px;
     line-height: 44px;
-
     color: #007D2F;
+}
+.buttons {
+    padding: 10px 0px 15px 0px;
+    display: block;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 44px;
+    color: #007D2F;
+    background:none;
+    border:none;
+    cursor: pointer;
+    margin-left: 80px;
+}
+
+.buttons:hover{
+    color:#897261;  
 }
 
 .sidenav a:hover{
-    color:#6ccf55;
+    color: #897261;
 }
 
 /*shows active tab */
 .sidenav a:hover:not(.active)
 {
-    color:#897261;
+    color:#6ccf55;
 }
 
 /* make sidebar a topbar*/
@@ -47,14 +110,27 @@
         height: auto;
         position: relative;
     }
-
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
+    .sidenav a{
+        font-size: 25px;
+    }
+    div.content {
+        margin-left: 0;
+    }
+    #logo {
+        width: 30%;
+        height: 30%;
+    }
+    .buttons{margin-left: 100px;}
 }
 /*displays the bar vertically*/
 @media only screen and (max-width: 400px) {
 	.sidenav a{
         text-align: center;
         float:none;
+        font-size: 25px;
     }
+    #logo {
+        width: 30%;
+        height: 30%;
+    } 
 }

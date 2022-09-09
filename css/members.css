@@ -95,7 +95,14 @@ body {
     line-height: 44px;
     color: #007D2F;
 }
-.sidenav a:hover {
+
+.sidenav a:hover{
+    color:#6ccf55;
+}
+
+/*shows active tab */
+.sidenav a:hover:not(.active)
+{
     color:#897261;
 }
 
@@ -114,12 +121,8 @@ body {
         margin-left: 0;
     }
     #logo {
-        padding-left: 1%;
-        padding-top: 1%;
         width: 30%;
         height: 30%;
-        left: 0;
-        top: 0;
     } 
     .grid-container {
         display: grid;
@@ -138,12 +141,8 @@ body {
         font-size: 25px;
     }
     #logo {
-        padding-left: 1%;
-        padding-top: 1%;
         width: 30%;
         height: 30%;
-        left: 0;
-        top: 0;
     }
     .grid-container {
         display: grid;
