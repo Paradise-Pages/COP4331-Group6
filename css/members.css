@@ -8,16 +8,6 @@ body {
     background-size: cover;
 }
 
-/* logo formatting */
-#logo {
-    padding-left: 1%;
-    padding-top: 1%;
-    width: 70%;
-    height: 70%;
-    left: 0;
-    top: 0;
-}
-
 /* button formatting */
 .btn {
     color: #007D2F;
@@ -96,6 +86,14 @@ body {
     color: #007D2F;
 }
 
+.sidenav img{
+  display: block;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
 .sidenav a:hover{
     color:#6ccf55;
 }
@@ -104,6 +102,26 @@ body {
 .sidenav a:hover:not(.active)
 {
     color:#897261;
+}
+
+.buttons {
+    padding: 10px 0px 15px 0px;
+    display: block;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 44px;
+    color: #007D2F;
+    background:none;
+    border:none;
+    cursor: pointer;
+    margin-left: 80px;
+}
+
+.buttons:hover{
+    color:#897261;  
 }
 
 /* make sidebar a topbar*/
@@ -117,13 +135,10 @@ body {
     .sidenav a{
         font-size: 25px;
     }
+    .sidenav img{width: 40%;}
     div.content {
         margin-left: 0;
     }
-    #logo {
-        width: 30%;
-        height: 30%;
-    } 
     .grid-container {
         display: grid;
         grid-template-columns: 33% 33% 33%;
@@ -132,6 +147,7 @@ body {
         margin-left: 25px;
         margin-right: 25px;
     } 
+    .buttons{margin-left: 100px;}
 }
 /*displays the bar vertically*/
 @media only screen and (max-width: 400px) {
@@ -140,10 +156,7 @@ body {
         float:none;
         font-size: 25px;
     }
-    #logo {
-        width: 30%;
-        height: 30%;
-    }
+    .sidenav img{width: 40%;}
     .grid-container {
         display: grid;
         grid-template-columns: 33% 33% 33%;

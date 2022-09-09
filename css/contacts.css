@@ -8,16 +8,6 @@ body {
     background-size: cover;
 }
 
-/* logo formatting */
-#logo {
-    padding-left: 1%;
-    padding-top: 1%;
-    width: 70%;
-    height: 70%;
-    left: 0;
-    top: 0;
-}
-
 /* button formatting */
 .btn {
     color: #007D2F;
@@ -72,6 +62,15 @@ body {
     line-height: 44px;
     color: #007D2F;
 }
+
+.sidenav img{
+    display: block;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
 .buttons {
     padding: 10px 0px 15px 0px;
     display: block;
@@ -113,12 +112,9 @@ body {
     .sidenav a{
         font-size: 25px;
     }
+    .sidenav img{width: 40%;}
     div.content {
         margin-left: 0;
-    }
-    #logo {
-        width: 30%;
-        height: 30%;
     }
     .buttons{margin-left: 100px;}
 }
@@ -129,8 +125,5 @@ body {
         float:none;
         font-size: 25px;
     }
-    #logo {
-        width: 30%;
-        height: 30%;
-    } 
+    .sidenav img{width: 40%;} 
 }
