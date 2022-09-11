@@ -6,6 +6,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    margin: 0;
 }
 
 /* button formatting */
@@ -26,16 +27,12 @@ body {
     color:#6ccf55;
 }
 
-/* For mobile devices */
-@media only screen and (max-width: 767px) {
-    body {
-        background-image: url('../images/backgroundmobile2.png') ; 
-    }
-}
 /* content from leinecker */
-.content {
+div.content {
+    padding: 1px 16px;
+    height: 1000px;
     margin-top: 100px;
-    margin-left: 300px;
+    margin-left: 264px;
 }
 
 /*side navigation menu*/
@@ -50,6 +47,7 @@ body {
     position: fixed; /*scroll bar stays in place when user is scrolling*/
     background: rgba(155, 188, 115, 0.9);
 }
+
 /*navigation links*/
 .sidenav a {
     padding: 10px 0px 15px 0px;
@@ -69,6 +67,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
+    position: relative;
+    top:-15px;
 }
 
 .buttons {
@@ -87,43 +87,63 @@ body {
     margin-left: 80px;
 }
 
+/*buttons that are on the sidebar*/
+.sidebuttons {
+    padding: 10px 0px 15px 0px;
+    display: inline-block;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 44px;
+    color: #007D2F;
+    background:none;
+    border:none;
+    cursor: pointer;
+    margin-left: 80px;
+}
+
 .buttons:hover{
     color:#897261;  
 }
 
 .sidenav a:hover{
-    color: #897261;
+    color: #6ccf55;
 }
 
-/*shows active tab */
-.sidenav a:hover:not(.active)
-{
-    color:#6ccf55;
-}
-
-/* make sidebar a topbar*/
-@media only screen and (max-width: 700px) {
+/* make sidebar a topbar-- mobile view*/
+@media screen and (max-width: 700px) {
+    body {
+        background-image: url('../images/backgroundmobile2.png') ; 
+    }
 	.sidenav
     {
         width: 100%;
         height: auto;
         position: relative;
+        
     }
+
     .sidenav a{
         font-size: 25px;
-    }
-    .sidenav img{width: 40%;}
+        display: inline-block;}
+
+    .sidenav img{
+        width: 10%;
+        float:left;}
+
     div.content {
         margin-left: 0;
     }
     .buttons{margin-left: 100px;}
-}
+} 
 /*displays the bar vertically*/
-@media only screen and (max-width: 400px) {
+@media screen and (max-width: 400px) {
 	.sidenav a{
         text-align: center;
         float:none;
         font-size: 25px;
     }
-    .sidenav img{width: 40%;} 
+    .sidenav img{width: 40%;}
 }
