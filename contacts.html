@@ -17,6 +17,18 @@
 </head>
 <body>
 
+<!--side navigation-->
+<div class="sidenav">
+	<img id="logo" src="images/icon.png">
+	<button type="button" id="logoutButton" class="sidebuttons" onclick="doLogout();">Logout</button>
+	<a href="contacts.html">Contacts</a> 
+	<a href="members.html">About Us</a>
+	<!--
+	a button onclick="###">Delete</button>
+	<a button onclick="###">Edit</button>
+	-->
+</div>
+
 <!-- page content-->
 <div class="content">
 	<div id="loggedInDiv">
@@ -25,7 +37,6 @@
 
 	<div id="accessUIDiv">
 		<br />
-
 		<input type="text" id="searchText" placeholder="Color To Search For"/>
 		<button type="button" id="searchColorButton" class="buttons" onclick="searchColor();"> Search Color </button><br />
 		<span id="colorSearchResult"></span>
@@ -36,18 +47,6 @@
 		<button type="button" id="addColorButton" class="buttons" onclick="addColor();"> Add Color </button><br />
 		<span id="colorAddResult"></span>
 	</div>
-</div>
-
-<!--side navi-->
-<div class="sidenav">
-	<img id="logo" src="images/icon.png">
-	<a href="contacts.html">Contacts</a>
-	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();">Logout</button>
-	<a href="members.html">About Us</a>
-	<!--
-	a button onclick="###">Delete</button>
-	<a button onclick="###">Edit</button>
-	-->
 </div>
 
 <!--ADD CONTACTS ICON
