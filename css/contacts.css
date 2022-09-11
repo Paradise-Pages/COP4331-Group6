@@ -35,6 +35,15 @@ div.content {
     margin-left: 264px;
 }
 
+.sidenav img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    position: relative;
+    
+}
+
 /*side navigation menu*/
 .sidenav {
     width: 264px;
@@ -61,15 +70,6 @@ div.content {
     color: #007D2F;
 }
 
-.sidenav img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    position: relative;
-    
-}
-
 .buttons {
     padding: 10px 0px 15px 0px;
     display: block;
@@ -79,6 +79,10 @@ div.content {
 .sidebuttons {
     padding: 10px 0px 15px 0px;
     display: inline-block;
+}
+
+.sidebuttons:hover{
+    color:#897261;  
 }
 
 .buttons:hover{
