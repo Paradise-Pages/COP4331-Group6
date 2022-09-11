@@ -6,6 +6,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    margin: 0;
 }
 
 /* button formatting */
@@ -26,12 +27,69 @@ body {
     color:#6ccf55;
 }
 
-/* Container w/main body of text and images */
+/* content from leinecker */
+div.content {
+    padding: 1px 16px;
+    height: 1000px;
+    margin-top: 100px;
+    margin-left: 264px;
+}
+
+.sidenav img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    position: relative;
+    
+}
+
+/*side navigation menu*/
+.sidenav {
+    width: 264px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0px;
+    top: 0px;
+    overflow: auto; /*disables horizontal scroll*/
+    position: fixed; /*scroll bar stays in place when user is scrolling*/
+    background: rgba(155, 188, 115, 0.9);
+}
+
+/*navigation links*/
+.sidenav a {
+    padding: 10px 0px 15px 0px;
+    display: block;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 44px;
+    color: #007D2F;
+}
+
+.buttons {
+    padding: 10px 0px 15px 0px;
+    display: inline-block;
+}
+
+.buttons:hover{
+    color:#897261;  
+}
+
+.sidenav a:hover{
+    color: #6ccf55;
+}
+
+* Container w/main body of text and images
 .container {
     overflow-y: scroll;
     width: 100%;
 }
-/* grid w/images and names */
+
+/*grid w/images and names */
 .grid-container {
     display: grid;
     grid-template-columns: 33% 33% 33%;
@@ -52,61 +110,9 @@ body {
     width: 45%;
     height: auto;
     opacity: 80%;
-}
+} 
 
-/* For mobile devices */
-@media only screen and (max-width: 767px) {
-    body {
-        background-image: url('../images/backgroundmobile2.png') ; 
-    }
-}
-
-/*side navigation menu*/
-.sidenav {
-    width: 264px;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    left: 0px;
-    top: 0px;
-    overflow: auto; /*disables horizontal scroll*/
-    position: fixed; /*scroll bar stays in place when user is scrolling*/
-    background: rgba(155, 188, 115, 0.9);
-}
-/*navigation links*/
-.sidenav a {
-    padding: 10px 0px 15px 0px;
-    display: block;
-    text-align: center;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 25px;
-    line-height: 44px;
-    color: #007D2F;
-}
-
-.sidenav img{
-  display: block;
-  margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-}
-
-.sidenav a:hover{
-    color:#6ccf55;
-}
-
-/*shows active tab */
-.sidenav a:hover:not(.active)
-{
-    color:#897261;
-}
-
-.buttons {
-    padding: 10px 0px 15px 0px;
-    display: block;
+.font {
     text-align: center;
     font-family: 'Montserrat';
     font-style: normal;
@@ -118,27 +124,48 @@ body {
     border:none;
     cursor: pointer;
     margin-left: 80px;
+
 }
 
-.buttons:hover{
-    color:#897261;  
-}
-
-/* make sidebar a topbar*/
-@media only screen and (max-width: 700px) {
+/* make sidebar a topbar for mobile view*/
+@media screen and (max-width: 700px) {
+    body {
+        background-image: url('../images/backgroundmobile2.png') ; 
+    }
 	.sidenav
     {
         width: 100%;
         height: auto;
         position: relative;
+        overflow: hidden; /*hides scroll bar*/
+        position:sticky;
+
     }
+
+    .buttons
+    {
+        position: relative;
+        font-size: 4vw;
+        top:5px;
+    }
+
     .sidenav a{
-        font-size: 25px;
-    }
-    .sidenav img{width: 40%;}
+        display: inline-block;
+        padding: 10px;
+        font-size: 4vw;
+        top:5px;
+        position: relative;
+       }
+
+    .sidenav img{
+        width: 12vw;
+        float:left;}
+
     div.content {
         margin-left: 0;
     }
+    .buttons{margin-left: 100px;}
+
     .grid-container {
         display: grid;
         grid-template-columns: 33% 33% 33%;
@@ -147,16 +174,15 @@ body {
         margin-left: 25px;
         margin-right: 25px;
     } 
-    .buttons{margin-left: 100px;}
-}
+} 
 /*displays the bar vertically*/
-@media only screen and (max-width: 400px) {
+@media screen and (max-width: 400px) {
 	.sidenav a{
         text-align: center;
         float:none;
-        font-size: 25px;
     }
     .sidenav img{width: 40%;}
+
     .grid-container {
         display: grid;
         grid-template-columns: 33% 33% 33%;
