@@ -63,45 +63,22 @@ div.content {
 
 .sidenav img{
     display: block;
-    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
     width: 70%;
     position: relative;
-    top:-15px;
+    
 }
 
 .buttons {
     padding: 10px 0px 15px 0px;
     display: block;
-    text-align: center;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 25px;
-    line-height: 44px;
-    color: #007D2F;
-    background:none;
-    border:none;
-    cursor: pointer;
-    margin-left: 80px;
 }
 
 /*buttons that are on the sidebar*/
 .sidebuttons {
     padding: 10px 0px 15px 0px;
     display: inline-block;
-    text-align: center;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 25px;
-    line-height: 44px;
-    color: #007D2F;
-    background:none;
-    border:none;
-    cursor: pointer;
-    margin-left: 80px;
 }
 
 .buttons:hover{
@@ -112,7 +89,22 @@ div.content {
     color: #6ccf55;
 }
 
-/* make sidebar a topbar-- mobile view*/
+.font {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 44px;
+    color: #007D2F;
+    background:none;
+    border:none;
+    cursor: pointer;
+    margin-left: 80px;
+
+}
+
+/* make sidebar a topbar for mobile view*/
 @media screen and (max-width: 700px) {
     body {
         background-image: url('../images/backgroundmobile2.png') ; 
@@ -122,15 +114,28 @@ div.content {
         width: 100%;
         height: auto;
         position: relative;
-        
+        overflow: hidden; /*hides scroll bar*/
+        position:sticky;
+
+    }
+
+    .sidebuttons
+    {
+        position: relative;
+        font-size: 4vw;
+        top:5px;
     }
 
     .sidenav a{
-        font-size: 25px;
-        display: inline-block;}
+        display: inline-block;
+        padding: 10px;
+        font-size: 4vw;
+        top:5px;
+        position: relative;
+       }
 
     .sidenav img{
-        width: 10%;
+        width: 12vw;
         float:left;}
 
     div.content {
@@ -143,7 +148,6 @@ div.content {
 	.sidenav a{
         text-align: center;
         float:none;
-        font-size: 25px;
     }
     .sidenav img{width: 40%;}
 }
