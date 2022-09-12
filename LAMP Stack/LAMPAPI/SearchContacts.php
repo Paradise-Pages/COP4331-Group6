@@ -5,16 +5,16 @@
 	$searchResults = "";
 	$searchCount = 0;
 
-	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
+	$conn = new mysqli("localhost", "userName", "password", "COP4331");
 	if ($conn->connect_error)
 	{
 		returnWithError( $conn->connect_error );
 	}
 	else
 	{
-		$stmt = $conn->prepare("select * from COP4331.Contacts where (FirstName like ? OR LastName like?) and UserID=?");
+		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE (FirstName like ? OR LastName like?) AND UserID=?");
 		$colorName = "%" . $inData["search"] . "%";
-		$stmt->bind_param("ss", $colorName, $colorName, $inData["userId"]);
+		$stmt->bind_param("sss", $colorName, $colorName, $inData["userId"]);
 		$stmt->execute();
 
 		$result = $stmt->get_result();
@@ -26,8 +26,6 @@
 				$searchResults .= ",";
 			}
 			$searchCount++;
-			// $searchResults .= '"' . $row["FirstName"] . '"';
-			//"." means add
 			$searchResults .= '{"FirstName" : "' . $row["FirstName"]. '", "LastName" : "' . $row["LastName"]. '", "PhoneNumber" : "' . $row["PhoneNumber"]. '", "EmailAddress" : "' . $row["EmailAddress"]. '", "UserID" : "' . $row["UserID"]. '"}';
 		}
 
