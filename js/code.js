@@ -59,20 +59,16 @@ function doLogin()
 }
 
 function doSignup()
-{
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	
-	let firstN = document.getElementById("firstName").value;
-	let lastN = document.getElementById("lastName").value;
+{	
+	firstName = document.getElementById("firstName").value;
+	lastName = document.getElementById("lastName").value;
 	let login = document.getElementById("login").value;
 	let password = document.getElementById("password").value;
 //	var hash = md5( password );
 	
-	document.getElementById("loginResult").innerHTML = "";
+	document.getElementById("signupResult").innerHTML = "";
 
-	let tmp = {firstN:firstN,lastN:lastN,login:login,password:password};
+	let tmp = {firstName:firstName,lastName:lastName,login:login,password:password};
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
@@ -92,7 +88,7 @@ function doSignup()
 		
 				if( userId > 1 )
 				{		
-					document.getElementById("loginResult").innerHTML = "Account already exists";
+					document.getElementById("signupResult").innerHTML = "Already made user";
 					return;
 				}
 		
@@ -101,14 +97,14 @@ function doSignup()
 
 				saveCookie();
 	
-				window.location.href = "contacts.html";
+				window.location.href = "index.html";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("loginResult").innerHTML = err.message;
+		document.getElementById("signupResult").innerHTML = err.message;
 	}
 
 }
