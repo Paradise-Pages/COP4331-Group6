@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="js/code.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Island Moments' rel='stylesheet'>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() 
 	{
@@ -19,9 +20,9 @@
 
 <!--side navigation-->
 <div class="sidenav">
-	<img id="logo" src="images/icon.png">
+	<img id="logo" src="images/icon.png" alt="logo image">
 	<button type="button" id="logoutButton" class="sidebuttons font" onclick="doLogout();">Logout</button>
-	<a  href="contacts.html">Contacts</a> 
+	<a href="contacts.html">Contacts</a> 
 	<a href="members.html">About Us</a>
 	<!--
 	a button onclick="###">Delete</button>
@@ -31,6 +32,13 @@
 
 <!-- page content-->
 <div class="content">
+	<form role="search" id="form">
+		<input type="search" id="seach" name="seach"
+		 placeholder="Search..."
+		 aria-label="Search through site content">
+		<button type="search"><i class="material-icons" id="searchBtn">search</i></button>
+	  </form>
+
 	<div id="loggedInDiv">
 		<span id="userName"></span><br />
 	</div>

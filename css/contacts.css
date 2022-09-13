@@ -24,8 +24,47 @@ body {
     float: right;
 }
 .btn:hover{
-    color:#6ccf55;
+    color:#897261;
 }
+
+form {
+    background-color: rgb(155, 188, 115);
+    width: 800px;
+    height: 44px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  input {
+    all: unset;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 6px 10px;
+  }
+  ::placeholder {
+    color: #fff;
+    opacity: 0.7; 
+  }
+  button[type="search"] {
+   background-color: #897261;
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+  }
+  
+  svg {
+    color: #fff;
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+    padding: 10px;
+  }
 
 /* content from leinecker */
 div.content {
@@ -62,6 +101,7 @@ div.content {
     padding: 10px 0px 15px 0px;
     display: block;
     text-align: center;
+    text-decoration: none;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
@@ -90,7 +130,7 @@ div.content {
 }
 
 .sidenav a:hover{
-    color: #6ccf55;
+    color: #897261;
 }
 
 .font {
