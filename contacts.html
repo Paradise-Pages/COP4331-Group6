@@ -63,12 +63,20 @@
 	</div>
 
 	<div id="accessUIDiv">
-		<br />
+		<!--<br />
 		<input type="text" id="searchText" placeholder="Contact To Search For"/>
 		<button type="button" id="searchContactButton" class="buttons font" onclick="searchContacts();"> Search Contacts </button><br />
 		<span id="contactSearchResult"></span>
-		<p id="contactList">
-		</p><br /><br />
+		<p id="contactList"></p>
+		<br /><br/>-->
+
+		<br/>
+		<form role="search" id="form">
+			<input type="search" id="searchText" name="seach" placeholder="Search...">
+			<button type="search" id="searchContactButton" onclick="searchContacts();"><i class="material-icons">search</i></button>
+			<span id="contactSearchResult"></span>
+			<p id="contactList"></p>
+		</form> <br/><br/>
 
 		<input type="text" id="contactTextFirst" placeholder="First Name">
 		<input type="text" id="contactTextLast" placeholder="Last Name">
