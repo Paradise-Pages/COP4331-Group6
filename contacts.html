@@ -29,7 +29,7 @@
 	-->
 </div>
 
-<!-- page content-->
+<!-- page content	ORIGINAL
 <div class="content">
 	<div id="loggedInDiv">
 		<span id="userName"></span><br />
@@ -46,6 +46,28 @@
 		<input type="text" id="colorText" placeholder="Color To Add">
 		<button type="button" id="addColorButton" class="buttons font" onclick="addColor();"> Add Color </button><br />
 		<span id="colorAddResult"></span>
+	</div>
+</div>-->
+<!-- page content-->
+<div class="content">
+	<div id="loggedInDiv">
+		<span id="userName"></span><br />
+	</div>
+
+	<div id="accessUIDiv">
+		<br />
+		<input type="text" id="searchText" placeholder="Contact To Search For"/>
+		<button type="button" id="searchContactButton" class="buttons font" onclick="searchContacts();"> Search Contacts </button><br />
+		<span id="contactSearchResult"></span>
+		<p id="contactList">
+		</p><br /><br />
+
+		<input type="text" id="contactTextFirst" placeholder="First Name">
+		<input type="text" id="contactTextLast" placeholder="Last Name">
+		<input type="text" id="contactTextNumber" placeholder="Phone Number">
+		<input type="text" id="contactTextEmail" placeholder="Email Address">
+		<button type="button" id="addContactButton" class="buttons font" onclick="addContact();"> Add Contact </button><br />
+		<span id="contactAddResult"></span>
 	</div>
 </div>
 
