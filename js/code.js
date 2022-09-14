@@ -68,7 +68,7 @@ function doSignup() {
     let login = document.getElementById("login").value;
     let password = document.getElementById("password").value;
 
-    //	var hash = md5( password );
+    var hash = md5( password );
 
     document.getElementById("signupResult").innerHTML = "";
 
@@ -76,9 +76,8 @@ function doSignup() {
         firstName: firstName,
         lastName: lastName,
         login: login,
-        password: password
+        password: hash
     };
-    //	var tmp = {login:login,password:hash};
 
     let jsonPayload = JSON.stringify(tmp);
 
