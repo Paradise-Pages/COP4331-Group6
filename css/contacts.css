@@ -27,6 +27,13 @@ body {
     color:#897261;
 }
 
+div.form
+{
+    display: block;
+    margin-left: 15%;
+    margin-right: auto;
+}
+
 form {
     background-color: rgb(155, 188, 115);
     width: 800px;
@@ -35,8 +42,8 @@ form {
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
-  input {
+}
+input {
     all: unset;
     font-family: 'Montserrat';
     font-size: 16px;
@@ -44,27 +51,34 @@ form {
     height: 100%;
     width: 100%;
     padding: 6px 10px;
-  }
-  ::placeholder {
+}
+::placeholder {
     color: #fff;
     opacity: 0.7; 
-  }
-  button[type="search"] {
-   background-color: #897261;
+}
+button[type="search"] {
+    background-color: #897261;
     color: #fff;
     width: 44px;
     height: 44px;
     background: none;
     border: none;
-  }
-  
-  svg {
+} 
+svg {
     color: #fff;
     fill: currentColor;
     width: 24px;
     height: 24px;
     padding: 10px;
-  }
+}
+span {
+    color: rgb(164, 0, 0);
+    font-family: 'Montserrat'; 
+}
+p {
+    color: rgb(164, 0, 0);
+    font-family: 'Montserrat';  
+}
 
 /* content from leinecker */
 div.content {
