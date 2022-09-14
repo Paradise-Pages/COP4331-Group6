@@ -14,16 +14,14 @@ function doLogin() {
     let login = document.getElementById("loginName").value;
     let password = document.getElementById("loginPassword").value;
 
-    //	var hash = md5( password );
+    var hash = md5( password );
 
     document.getElementById("loginResult").innerHTML = "";
 
     let tmp = {
         login: login,
-        password: password
+        password: hash 
     };
-
-    //	var tmp = {login:login,password:hash};
 
     let jsonPayload = JSON.stringify(tmp);
 
