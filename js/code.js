@@ -228,17 +228,33 @@ function searchContacts() {
         xhr.onreadystatechange = function() {
 
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("contactSearchResult").innerHTML = "Contact(s) retrieved";
                 let jsonObject = JSON.parse(xhr.responseText);
+                console.log(jsonObject)
+                if(jsonObject.error)
+				{
+					console.log(jsonObject.error);
+                    document.getElementById("contactSearchResult").innerHTML = "Contact not found";
+					return;
+				}
+                document.getElementById("contactSearchResult").innerHTML = "Contact(s) retrieved";
+                
+                console.log(JSON.stringify(jsonObject));
 
-                for (let i = 0; i < jsonObject.results.length; i++) {
+                /*for (let i = 0; i < jsonObject.length; i++) {
+                    console.log("here")
 
-                    contactList += jsonObject.results[i];
+                    contactList += jsonObject.FirstName[i];
+                    contactList += jsonObject.LastName[i];
+                    contactList += jsonObject.EmailAddress[i];
+                    contactList += jsonObject.PhoneNumber[i]; 
+                    contactList += jsonObject.UserId[i];
+
+                    console.log(contactList)
 
                     if (i < jsonObject.results.length - 1) {
                         contactList += "<br />\r\n";
                     }
-                }
+                }*/
 
                 document.getElementsByTagName("p")[0].innerHTML = contactList;
             }
