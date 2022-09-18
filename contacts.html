@@ -8,7 +8,8 @@
 	<script type="text/javascript" src="js/code.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Island Moments' rel='stylesheet'>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 	<script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() 
 	{
@@ -32,28 +33,36 @@
 
 <!-- page content-->
 <div class="content">
-	<div id="loggedInDiv">
-		<span id="userName"></span><br />
+	<div class="loggedInDiv">
+		<span style="color:#007D2F"id="userName"></span><br/>
 	</div>
-
-	<div id="accessUIDiv">
-		<br />
-		<input type="text" id="searchText" placeholder="Contact To Search For"/>
-		<button type="button" id="searchContactButton" class="buttons font" onclick="searchContacts();"> Search Contacts </button><br />
-		<span id="contactSearchResult"></span>
-		<p id="contactList"></p>
-		<br /><br/>
-
-		<!--<br/>
-		<div class="form">
-		<form role="search" id="form">
-			<input type="text" id="searchText" name="seach" placeholder="Search..."/>
-			<button type="search" id="searchContactButton" onclick="searchContacts();"><i class="material-icons">search</i></button>	
-		</form> 
-		<span id="contactSearchResult"></span>
-		<p id="contactList"></p></div>
-		<br/><br/>-->
-
+	<div class="accessUIDiv">	
+		<br/><div class="search-container">
+			<input type="text" name="search" id="searchText" placeholder="Search..." class="search-input">
+			<a href="#" class="search-btn" type="button" id="searchContactButton" class="buttons font" onclick="searchContacts();"><i class="fas fa-search"></i></a>
+		</div>
+		<br/><span id="contactSearchResult"></span>
+	</div>
+	<div class="tables">
+	   <div class="tbl-header">
+		<table cellpadding="0" cellspacing="0" border="0">
+		  <thead>
+			<tr>
+			  <th>First&nbspName</th>
+			  <th>Last&nbspName</th>
+			  <th>Email&nbspAddress</th>
+			  <th>Phone&nbspNumber</th>
+			</tr>
+		  </thead>
+		</table>
+	  </div>
+	  <div class="tbl-content">
+		<table cellpadding="0" cellspacing="0" border="0">
+		  <tbody id="tbody"></tbody>
+		</table>
+	  </div>
+	</div>
+	<div class="addContacts">
 		<input type="text" id="contactTextFirst" placeholder="First Name">
 		<input type="text" id="contactTextLast" placeholder="Last Name">
 		<input type="text" id="contactTextNumber" placeholder="Phone Number">

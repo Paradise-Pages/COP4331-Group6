@@ -14,13 +14,13 @@ function doLogin() {
     let login = document.getElementById("loginName").value;
     let password = document.getElementById("loginPassword").value;
 
-    var hash = md5( password );
+    //var hash = md5( password );
 
     document.getElementById("loginResult").innerHTML = "";
 
     let tmp = {
         login: login,
-        password: hash 
+        password: password 
     };
 
     let jsonPayload = JSON.stringify(tmp);
@@ -94,11 +94,8 @@ function doSignup() {
 
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
-
-                if (userId > 1) {
-                    document.getElementById("signupResult").innerHTML = "Already made user";
-                    return;
-                }
+                document.getElementById("signupResult").innerHTML = "User added, head over to Login";
+               
 
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
@@ -153,7 +150,7 @@ function readCookie() {
     } 
 	
 	else {
-        document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+        document.getElementById("userName").innerHTML = "Welcome, " + firstName + " " + lastName + "!";
     }
 }
 
@@ -226,7 +223,6 @@ function searchContacts() {
     
 	try {
         xhr.onreadystatechange = function() {
-
             if (this.readyState == 4 && this.status == 200) {
                 let jsonObject = JSON.parse(xhr.responseText);
                 console.log(jsonObject)
@@ -237,26 +233,18 @@ function searchContacts() {
 					return;
 				}
                 document.getElementById("contactSearchResult").innerHTML = "Contact(s) retrieved";
-                
-                console.log(JSON.stringify(jsonObject));
-
-                /*for (let i = 0; i < jsonObject.length; i++) {
-                    console.log("here")
-
-                    contactList += jsonObject.FirstName[i];
-                    contactList += jsonObject.LastName[i];
-                    contactList += jsonObject.EmailAddress[i];
-                    contactList += jsonObject.PhoneNumber[i]; 
-                    contactList += jsonObject.UserId[i];
-
-                    console.log(contactList)
-
-                    if (i < jsonObject.results.length - 1) {
-                        contactList += "<br />\r\n";
-                    }
-                }*/
-
-                document.getElementsByTagName("p")[0].innerHTML = contactList;
+                let text = "<table border='1'>"
+				for( let i=0; i<jsonObject.results.length; i++ )
+				{
+                    text += "<tr>"
+					text += "<td>" + jsonObject.results[i].FirstName + "</td>";
+                    text += "<td>" + jsonObject.results[i].LastName + "</td>";
+                    text += "<td>" + jsonObject.results[i].EmailAddress + "</td>";
+                    text += "<td>" + jsonObject.results[i].PhoneNumber + "</td>";
+                    text += "<tr/>"	
+				}
+                text += "</table>"    
+                document.getElementById("tbody").innerHTML = text;
             }
         };
 
