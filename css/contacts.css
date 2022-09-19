@@ -26,9 +26,38 @@ body {
     font-size: 2vw;
     align-self: center;
 }
-.accessUIDiv {
+.accessUIDiv::after {
+    margin: 10px;
+    margin-left: 200px;
+    padding: 10px 10px;
+    text-align: center;
     align-self: center;
 }
+
+.column {
+    display: inline-block;
+    padding: 10px 10px;
+    vertical-align: middle;
+}
+.column button{
+    position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
 .tables {
     align-self: center;
 }
@@ -53,7 +82,6 @@ body {
 .btn:hover{
     color:#897261;
 }
-
 /* search bar formatting */
 .search-container{
     background: #fff;
@@ -89,7 +117,7 @@ body {
 }
 
 .search-container .search-btn .fas{
-    color: rgb(68, 240, 226);
+    color: rgba(155, 188, 115, 0.9);
 }
 
 .search-container:hover{
@@ -106,39 +134,45 @@ p {
 }
 /* table formatting */
 table{
-    width:90%;
+    width:100%;
     table-layout: fixed;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
   }
-  .tbl-header{
-    background-color: rgb(134, 213, 220);
-   }
   .tbl-content{
     height:300px;
     overflow-x:auto;
     margin-top: 0px;
-    border: 1px solid rgb(26, 43, 45);
+    border: 1px solid rgba(155, 188, 115, 0.9);
   }
-  th{
+  #contacts td, #contacts th {
+    border: 1px solid rgba(155, 188, 115, 0.9); 
+  }
+
+#contacts tr:hover {background-color: #478fbb;}
+
+#contacts th{
     padding: 20px 15px;
     text-align: left;
     font-family: 'Montserrat'; 
     font-weight: 500;
-    font-size: 12px;
-    color: rgb(3, 70, 115);
+    font-size: 16px;
+    font-weight: bold;
+    color: #007D2F;
+    background-color: rgba(155, 188, 115, 0.9);
     text-transform: uppercase;
   }
-  td{
+  #contacts td{
     padding: 15px;
     text-align: left;
     font-family: 'Montserrat'; 
     vertical-align:middle;
     font-weight: 300;
-    font-size: 12px;
-    color: rgb(3, 70, 115);
-    border-bottom: solid 1px rgba(255,255,255,0.1);
+    font-size: 15px;
+    font-weight: bold;
+    color: #66471b;
+  
   }
 /* for custom scrollbar for webkit browser*/
 
@@ -253,8 +287,8 @@ table{
        }
     .sidenav img{
         width: 12vw;
-        float:left;}
-
+        float:left;
+    }
     div.content {
         margin-left: 0;
     }
@@ -267,4 +301,4 @@ table{
         float:none;
     }
     .sidenav img{width: 40%;}
-}
+} 

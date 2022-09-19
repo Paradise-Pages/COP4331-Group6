@@ -201,15 +201,9 @@ function addContact() {
 
 }
 
-function searchContacts() {
-
-    let srch = document.getElementById("searchText").value;
-    document.getElementById("contactSearchResult").innerHTML = "";
-
-    let contactList = "";
-
+function loadContacts() {
     let tmp = {
-        search: srch,
+        search: "",
         userId: userId
     };
 
@@ -229,16 +223,13 @@ function searchContacts() {
                 if(jsonObject.error)
 				{
 					console.log(jsonObject.error);
-                    document.getElementById("contactSearchResult").innerHTML = "Contact not found";
 					return;
 				}
-                document.getElementById("contactSearchResult").innerHTML = "Contact(s) retrieved";
                 let text = "<table border='1'>"
 				for( let i=0; i<jsonObject.results.length; i++ )
 				{
                     text += "<tr>"
-					text += "<td>" + jsonObject.results[i].FirstName + "</td>";
-                    text += "<td>" + jsonObject.results[i].LastName + "</td>";
+					text += "<td>" + jsonObject.results[i].FirstName +" "+ jsonObject.results[i].LastName +"</td>";
                     text += "<td>" + jsonObject.results[i].EmailAddress + "</td>";
                     text += "<td>" + jsonObject.results[i].PhoneNumber + "</td>";
                     text += "<tr/>"	
@@ -252,5 +243,26 @@ function searchContacts() {
     } catch (err) {
         document.getElementById("contactSearchResult").innerHTML = err.message;
     }
-
 }
+
+function searchContacts() {
+    const input = document.getElementById("searchText");
+    const filters = input.value.toUpperCase().split(' '); // create several filters separated by space
+    const table = document.getElementById("contacts");
+    const tr = table.getElementsByTagName("tr");
+  
+    for (let i = 0; i < tr.length; i++) {
+      const td = tr[i].getElementsByTagName("td")[0];
+  
+      if (td) {
+        const txtValue = td.textContent || td.innerText;
+          tr[i].style.display = "none"; // hide each row
+          
+        for (filter of filters) { // add the rows matching a filter
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";        
+          }
+        }       
+      }
+    }
+  }
