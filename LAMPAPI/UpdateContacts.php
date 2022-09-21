@@ -2,24 +2,22 @@
 
 	$inData = getRequestInfo();
 
-	$firstName = $inData["firstName"];
-	$lastName = $inData["lastName"];
 	$phoneNumber = $inData["phoneNumber"];
 	$emailAddress = $inData["emailAddress"];
-	$userId = $inData["userId"];
 	$newFirst = $inData["newFirstName"];
 	$newLast = $inData["newLastName"];
+	$id = $inData["id"];
 
 
-	$conn = new mysqli("localhost", "userName", "password", "COP4331");
+	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 		if ($conn->connect_error)
 		{
 			returnWithError( $conn->connect_error );
 		}
 		else
 		{
-			$stmt = $conn->prepare("UPDATE Contacts SET FirstName = ?, LastName=?, PhoneNumber= ?, EmailAddress= ? WHERE UserID= ? AND FirstName= ? AND LastName= ?");
-			$stmt->bind_param("ssssiss", $newFirst, $newLast, $phoneNumber, $emailAddress, $userId, $firstName, $lastName);
+			$stmt = $conn->prepare("UPDATE Contacts SET FirstName = ?, LastName=?, PhoneNumber= ?, EmailAddress= ? WHERE ID= ?");
+			$stmt->bind_param("ssssi", $newFirst, $newLast, $phoneNumber, $emailAddress, $id);
 			$stmt->execute();
 
 			$stmt->close();
