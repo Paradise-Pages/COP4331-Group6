@@ -14,11 +14,6 @@ body {
     margin: 0;
 }
 
-.buttons:hover,
-#sidebar a:hover {
-    color: #897261;
-}
-
 .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -29,57 +24,87 @@ body {
         "content3";
 }
 
-#sidebar {
-    grid-area: content1;
-    overflow: hidden;
-    /*disables horizontal scroll*/
+/* button formatting */
+.btn {
+    color: #007D2F;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 2.3vw;
+    background:none;
+    border:none;
+    cursor: pointer;
+    padding:0.3em 1.2em;
+    margin:0.6em 0.3em 0.3em 0;
+    float: right;
+}
+.btn:hover{
+    color:#897261;
+}
+/*side navigation menu*/
+.sidenav img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    position: relative;
+}
+.sidenav {
+    width: 264px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0px;
+    top: 0px;
+    overflow: auto; /*disables horizontal scroll*/
+    position: fixed; /*scroll bar stays in place when user is scrolling*/
     background: rgba(155, 188, 115, 0.9);
 }
 
-#sidebar>a {
+/*navigation links*/
+.sidenav a {
+    padding: 10px 0px 15px 0px;
+    display: block;
     text-align: center;
+    text-decoration: none;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 3vw;
-    line-height: 55px;
+    font-size: 25px;
+    line-height: 44px;
     color: #007D2F;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    vertical-align: top;
-    margin: auto;
-    top: 0px;
-    padding-right:7px;
-    padding-bottom: 10px;
 }
-
 .buttons {
+    padding: 10px 0px 15px 0px;
+    display: block;
+}
+
+/*buttons that are on the sidebar*/
+.sidebuttons {
+    padding: 10px 0px 15px 0px;
+    display: inline-block;
+}
+.sidebuttons:hover{
+    color:#897261;  
+}
+.buttons:hover{
+    color:#897261;  
+}
+.sidenav a:hover{
+    color: #897261;
+}
+.font {
     text-align: center;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 3vw;
-    line-height: 50px;
+    font-size: 25px;
+    line-height: 44px;
     color: #007D2F;
-    background: none;
-    border: none;
+    background:none;
+    border:none;
     cursor: pointer;
-    display: inline-block;
-    position: relative;
-    vertical-align: top;
-    margin: auto;
-    top: -1px;
-}
-
-.logo {
-    height: 12vw;
-    width: 12vw;
-    float: left;
-    position: relative;
-    top: 0px;
+    margin-left: 80px;
 }
 
 /*MEMBER ICONS*/
@@ -152,15 +177,6 @@ body {
     margin: auto;
 }
 
-
-
-.grid-item img {
-    width: 45%;
-    height: auto;
-    opacity: 80%;
-}
-
-
 /*tablets*/
 @media only screen and (min-width:768px) {
     body {
@@ -183,19 +199,6 @@ body {
             "grid-item1 grid-item2"
             "grid-item4 grid-item3"
             "grid-item5 grid-item6";
-    }
-
-    #sidebar>a,
-    .buttons {
-        display: inline-block;
-        position: relative;
-        vertical-align: top;
-        top: 10px;
-    }
-
-    .logo{
-        height: 5vw;
-        width: 5vw;
     }
 
     #footer {
@@ -230,27 +233,6 @@ body {
             "content1 content3 content3 content3"
     }
 
-    #sidebar>a,
-    .buttons {
-        display: block;
-        line-height: 44px;
-        margin: auto;
-        font-size: 3vw;
-        padding-bottom: 10px;
-    }
-
-    #logoutButton {
-        text-align: center;
-    }
-
-    .logo {
-        width: 14vw;
-        height: 15vw;
-        display: block;
-        margin-left: 11px;
-        margin-right: auto;
-    }
-
     /*MEMBER ICONS*/
     #members {
         grid-area: content2;
@@ -277,12 +259,6 @@ body {
     /*--------------------*/
     #footer {
         display: inline-block;
-    }
-
-    .grid-item img {
-        width: 45%;
-        height: auto;
-        opacity: 80%;
     }
 
 }

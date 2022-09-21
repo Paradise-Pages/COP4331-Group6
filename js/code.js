@@ -64,7 +64,7 @@ function doSignup() {
     firstName = document.getElementById("firstName").value;
     lastName = document.getElementById("lastName").value;
 
-    let login = document.getElementById("login").value;
+    let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
     var hash = md5( password );
@@ -74,7 +74,7 @@ function doSignup() {
     let tmp = {
         firstName: firstName,
         lastName: lastName,
-        login: login,
+        login: username,
         password: hash
     };
 
@@ -93,15 +93,10 @@ function doSignup() {
 
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
-                document.getElementById("signupResult").innerHTML = "User added, head over to Login";
-               
-
+                document.getElementById("signupResult").innerHTML = "User added, please LOGIN";
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
-
                 saveCookie();
-
-                window.location.href = "index.html";
             }
         };
 
