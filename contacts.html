@@ -12,6 +12,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() 
 	{
@@ -20,8 +26,8 @@
 	}, false);
 	</script>
 </head>
-<body>ß
-ß
+<body>
+
 <!--side navigation-->
 <div class="sidenav">
 	<img id="logo" src="images/icon.png" alt="logo image">
@@ -44,38 +50,37 @@
 			<input onkeyup=searchContacts() type="text" name="search" id="searchText" placeholder="Search..." class="search-input">
 			<a href="#" class="search-btn" type="button" id="searchContactButton" class="buttons font" onclick="searchContacts();"><i class="fas fa-search"></i></a>
 		</div></div>
-		<!--<br/><span id="contactSearchResult"></span>-->
 		<div class="column"><button type="button" onclick=loadContacts()><i class="fa fa-refresh" style="font-size:30px;color:rgba(155, 188, 115, 0.9)" aria-hidden="true"></i></button></div>
-		<div class="column"><button type="button" onclick=loadContacts()> <i class="fa fa-user-plus" style="font-size:30px;color:rgba(155, 188, 115, 0.9)"></i></button></div>
+		<div class="column"><button type="button" onclick=showTable()> <i class="fas fa-user-plus" style="font-size:27px;color:rgba(155, 188, 115, 0.9)"></i></button></div>
 	</div>
+	<!--add contact form-->
+	<div class="addContacts">
+		<form id="addMe" action="" method="post">
+			<input type="text" id="contactTextFirst" placeholder="First Name">
+			<input type="text" id="contactTextLast" placeholder="Last Name">
+			<input type="text" id="contactTextNumber" placeholder="Phone Number">
+			<input type="text" id="contactTextEmail" placeholder="Email Address">
+			<button type="button" id="addContactButton" class="buttons font" onclick="addContact();"> Add Contact </button>
+	  </form>
+	</div>
+	<!--contact table-->
 	<div class="tables">
-	  <div class="tbl-content">
+	  <div class="tbl-content" id="contactsTable">
 		<table id="contacts" cellpadding="0" cellspacing="0" border="0">
 			<thread>
 				<tr>
-				<th>Name</th>
-				<th>Email&nbspAddress</th>
-				<th>Phone&nbspNumber</th>
+				<th>ID</th>
+				<th>First&nbspName</th>
+				<th>Last&nbspName</th>	
+				<th>Email</th>
+				<th>Phone</th>
+				<th></th>
 				</tr>
 			</thread>
 		  <tbody id="tbody"></tbody>
 		</table>
 	  </div>
 	</div>
-
-	<!--add contact situation-->
-	<div class="addContacts">
-		<input type="text" id="contactTextFirst" placeholder="First Name">
-		<input type="text" id="contactTextLast" placeholder="Last Name">
-		<input type="text" id="contactTextNumber" placeholder="Phone Number">
-		<input type="text" id="contactTextEmail" placeholder="Email Address">
-		<button type="button" id="addContactButton" class="buttons font" onclick="addContact();"> Add Contact </button><br />
-		<span id="contactAddResult"></span>
-	</div>
-</div>
-
-<!--ADD CONTACTS ICON
-<i class="fa-solid fa-user-plus"></i>-->
-
+ </div>
 </body>
 </html>
