@@ -8,8 +8,12 @@
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    overflow:hidden;
+    display:block;
+    height:350px;
 }
-.form input {
+
+.input-field {
     border-radius: 17px;
     font-family: 'Montserrat';
     outline: 0;
@@ -20,21 +24,10 @@
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
+    position:relative;
 }
-.form input[type=submit]{
-    border-radius: 17px;
-    font-family: 'Montserrat';
-    text-transform: uppercase;
-    outline: 0;
-    background: #897261;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px; 
-    position: absolute;
-}
-.form button {
+
+.submit-btn {
     border-radius: 17px;
     font-family: 'Montserrat';
     text-transform: uppercase;
@@ -49,29 +42,97 @@
     transition: all 0.3 ease;
     cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
+
+.input-form {
+    transition: .2s;
+    position: absolute;
+}
+
+
+.button-box {
+    width: 270px;
+    margin: auto;
+    position: relative;
+    border-radius: 30px;
+    top: -25px;
+    box-shadow: 0 0 25px 0 rgba(137, 114, 97, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    color:#FFFFFF;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align:center;
+    
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 140px;
+    height: 100%;
+    background:   #897261;
+    border-radius: 30px;
+    transition: .2s;
+}
+
+#login
+{
+    position: relative;
+}
+
+#loginButton
+{
+    position: relative;
+    bottom: -50px;
+}
+
+#loginName
+{
+    position: relative;
+    bottom: -50px;
+}
+
+#loginPassword
+{
+    position: relative;
+    bottom: -50px;
+}
+
+#signup
+{
+    position:relative;
+    left:450px;
+    top:-172px;
+}
+
+.submit-btn:hover {
     background: #cdab91;
 }
-.form .text {
-    margin: 15px 0 0;
-    color: #000000;
-    font-size: 12px;
-    font-family: 'Montserrat';
+
+.signup-form {
+    left: 450px;
 }
-.form .text a {
-    color: #007D2F;
-    font-weight: bolder;
-    text-decoration: none;
-} 
 
 /* body formatting */
 body {
     background-color: #F3B02E;
-    background-image: url('../images/background.png') ; 
+    background-image: url('../images/background.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    margin: 0;
+    overflow:hidden;
 }
 
 /* logo formatting */
@@ -81,56 +142,44 @@ body {
     left: 0;
 }
 
-/* button formatting */
-.btn {
-    color: #007D2F;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: bolder;
-    font-size: 2.3vw;
-    background:none;
-    border:none;
-    cursor: pointer;
-    padding:0.3em 1.2em;
-    margin:0.6em 0.3em 0.3em 0;
-    float: right;
-}
-.btn:hover{
-    color:#897261;
+.btn:hover {
+    color: #897261;
 }
 
 /* For mobile devices */
 @media only screen and (max-width: 767px) {
     body {
-        background-image: url('../images/backgroundmobile.png') ;        
+        background-image: url('../images/backgroundmobile.png');
     }
+
     #logo {
         width: 15%;
         height: 15%;
     }
+
     .form {
         flex-direction: column;
         width: 50%;
-        height: auto;
         position: relative;
         margin: auto;
         border-radius: 10px;
-    } 
+    }
 }
 
 /* For tablets devices */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     body {
-        background-image: url('../images/backgroundmobile.png') ;        
+        background-image: url('../images/backgroundmobile.png');
     }
+
     #logo {
         width: 15%;
         height: 15%;
     }
+
     .form {
         flex-direction: column;
         width: 50%;
-        height: auto;
         position: relative;
         margin: auto;
         border-radius: 10px;

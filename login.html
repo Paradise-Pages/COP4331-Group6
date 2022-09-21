@@ -12,16 +12,26 @@
   </head>
   <body>
       <a href="index.html"><img id="logo" src="images/icon.png" alt="logo image"></a>
-      <button onclick="location.href = 'signup.html';" class ="btn">signup</button>
-      <button onclick="location.href = 'login.html';" class ="btn">login</button>
       <br/><br/><br/><br/>
   <div class="form">
-    <form class="login-form">
-      <input type="text" id="loginName" placeholder="username" name = "username"/>
-      <input type="password" id="loginPassword" placeholder="password" name ="password"/>
-      <button type="button" id="loginButton" class="buttons" onclick="doLogin();">submit</button>
+    <div class="button-box">
+      <div id="btn"></div>
+      <button type="button" class="toggle-btn" onclick="clickRegister()">Login</button>
+      <button type="button" class="toggle-btn" onclick="clickLogin()">Signup</button>
+    </div>
+    <form id="login" class="input-form">
+      <input type="text" class="input-field" id="loginName" placeholder="username" name = "username"/>
+      <input type="password" class="input-field" id="loginPassword" placeholder="password" name ="password"/>
+      <button type="button" id="loginButton" class="submit-btn" onclick="doLogin();">Login</button>
       <span class="text" style="color:rgb(203, 55, 21);" id="loginResult"></span>
-      <p class="text">Not registered? <a href="signup.html">Sign up</a></p>
+    </form>
+    <form id="signup" class="input-form" action = "PHP/signup.php" method="POST">
+        <input type="text" class="input-field" id="firstName" placeholder="first&nbsp;name" name = "firstName"/>
+        <input type="text" class="input-field" id="lastName" placeholder="last&nbsp;name" name ="lastName"/>
+        <input type="text" class="input-field" id="login" placeholder="username" name="login"/>
+        <input type="password" class="input-field" id="password" placeholder="password" name="password"/>
+        <button type="button" id="signupButton" class="submit-btn" onclick="doSignup();">Signup</button>
+        <span class="text" style="color:rgb(203, 55, 21);" id="signupResult"></span>
     </form>
   </div>
   </body>
