@@ -48,7 +48,6 @@
     position: absolute;
 }
 
-
 .button-box {
     width: 270px;
     margin: auto;
@@ -71,7 +70,6 @@
     font-size: 13px;
     text-transform: uppercase;
     text-align:center;
-    
 }
 
 #btn {
@@ -85,31 +83,26 @@
     transition: .2s;
 }
 
-#login
-{
+#login {
     position: relative;
 }
 
-#loginButton
-{
+#loginButton {
     position: relative;
     bottom: -50px;
 }
 
-#loginName
-{
+#loginName {
     position: relative;
     bottom: -50px;
 }
 
-#loginPassword
-{
+#loginPassword {
     position: relative;
     bottom: -50px;
 }
 
-#signup
-{
+#signup {
     position:relative;
     left:450px;
     top:-172px;

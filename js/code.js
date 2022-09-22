@@ -59,13 +59,54 @@ function doLogin() {
     }
 }
 
+function valid_username(username) {// ? jan
+
+    // {3,18} : assert password is between 3-18 chars  
+    // user must have at least one letter
+    // user can use only NUMBER, LATIN CHARACTERS, UNDERSCORE, HYPENS
+    var valid_username_reg = /^(?=.*[a-zA-Z])[a-zA-Z0-9-_]{3,18}$/;
+    return valid_username_reg.test(username);
+}
+
+function valid_password(password) {// ? jan
+
+    // (?=.*[0-9])      : assert one NUMBER
+    // (?=.*[!@#$%^&*]) : assert one SPECIAL CHAR
+    // {8,32}           : assert password is between 8-32 chars
+    // can contain any number of LATIN characters 
+    var valid_password_reg = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,32}$/;
+    return valid_password_reg.test(password);
+}
+
 function doSignup() {
 
     firstName = document.getElementById("firstName").value;
     lastName = document.getElementById("lastName").value;
 
-    let login = document.getElementById("login").value;
+    let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
+
+    if(!valid_password(password)) {// ? jan
+        /*
+        * idea:
+        ! display red warning message with an explanation of what went wrong
+        */
+
+        console.log("invalid password");
+        return;
+    }
+
+    if(!valid_username(username)) {// ? jan
+        /*
+        * idea:
+        ! display red warning message with an explanation of what went wrong
+        */
+
+        console.log("invalid username");
+        return;
+    }
+
+    console.log("valid password and username");
 
     var hash = md5( password );
 
@@ -74,7 +115,7 @@ function doSignup() {
     let tmp = {
         firstName: firstName,
         lastName: lastName,
-        login: login,
+        login: username,
         password: hash
     };
 
@@ -93,15 +134,10 @@ function doSignup() {
 
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
-                document.getElementById("signupResult").innerHTML = "User added, head over to Login";
-               
-
+                document.getElementById("signupResult").innerHTML = "User added, please LOGIN";
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
-
                 saveCookie();
-
-                window.location.href = "index.html";
             }
         };
 
