@@ -59,13 +59,23 @@ function doLogin() {
     }
 }
 
-function validate_password(password) {// ? jan
+function valid_username(username) {// ? jan
 
-    // (?=.*[0-9])      : assert one number
-    // (?=.*[!@#$%^&*]) : assert one special character
+    // {3,18} : assert password is between 3-18 chars  
+    // user must have at least one letter
+    // user can use only NUMBER, LATIN CHARACTERS, UNDERSCORE, HYPENS
+    var valid_username_reg = /^(?=.*[a-zA-Z])[a-zA-Z0-9-_]+{3,18}$/;
+    return valid_username_reg.test(username);
+}
+
+function valid_password(password) {// ? jan
+
+    // (?=.*[0-9])      : assert one NUMBER
+    // (?=.*[!@#$%^&*]) : assert one SPECIAL CHAR
     // {8,32}           : assert password is between 8-32 chars
-    var valid_password = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,32}$/;
-    return valid_password.test(password);
+    // can contain any number of LATIN characters 
+    var valid_password_reg = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,32}$/;
+    return valid_password_reg.test(password);
 }
 
 function doSignup() {
@@ -76,16 +86,23 @@ function doSignup() {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    if(!validate_password(password)) {// ? jan
+    if(!valid_password(password)) {// ? jan
         /*
-        ! TODO
-        * make the user retype a valid password
-
         * idea:
         ! display red warning message with an explanation of what went wrong
         */
 
         console.log("invalid password");
+        return;
+    }
+
+    if(!valid_username(username)) {// ? jan
+        /*
+        * idea:
+        ! display red warning message with an explanation of what went wrong
+        */
+
+        console.log("invalid username");
         return;
     }
 
