@@ -106,7 +106,7 @@ function doSignup() {
         return;
     }
 
-    console.log("valid password");
+    console.log("valid password and username");
 
     var hash = md5( password );
 
