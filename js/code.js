@@ -4,6 +4,7 @@ const extension = 'php';
 let userId = 0;
 let firstName = "";
 let lastName = "";
+const ids = []
 
 function doLogin() {
 
@@ -256,7 +257,6 @@ function loadContacts() {
     let jsonPayload = JSON.stringify(tmp);
 
     let url = urlBase + '/SearchContacts.' + extension;
-
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -273,8 +273,8 @@ function loadContacts() {
                 let text = "<table border='1'>"
 				for( let i=0; i<jsonObject.results.length; i++ )
 				{
+                    ids[i] = jsonObject.results[i].ID
                     text += "<tr id='row"+i+"'>"
-                    text += "<td id='idNum"+i+"'>" + jsonObject.results[i].ID + "</td>";
 					text += "<td id='first_Name"+i+"'>" + jsonObject.results[i].FirstName +"</td>";
                     text += "<td id='last_Name"+i+"'>" + jsonObject.results[i].LastName + "</td>";
                     text += "<td id='email"+i+"'>" + jsonObject.results[i].EmailAddress + "</td>";
@@ -304,8 +304,8 @@ function edit_row(id)
     var lastNameI=document.getElementById("last_Name"+id);
     var email=document.getElementById("email"+id);
     var phone=document.getElementById("phone"+id);
-    var id_val=document.getElementById("idNum"+id);
-    console.log(id_val.innerHTML);
+    //var id_val=document.getElementById("idNum"+id);
+    //console.log(id_val.innerHTML);
 
     var namef_data=firstNameI.innerHTML;
     var namel_data=lastNameI.innerHTML;
@@ -324,7 +324,7 @@ function save_row(no)
     var namel_val=document.getElementById("namel_text"+no).value; 
     var email_val=document.getElementById("email_text"+no).value;
     var phone_val=document.getElementById("phone_text"+no).value;
-    var id_val=document.getElementById("idNum"+no).innerHTML;
+    var id_val=ids[no]
 
     document.getElementById("first_Name"+no).innerHTML=namef_val;
     document.getElementById("last_Name"+no).innerHTML=namel_val;
