@@ -59,6 +59,15 @@ function doLogin() {
     }
 }
 
+function validate_password(password) {// ? jan
+
+    // (?=.*[0-9])      : assert one number
+    // (?=.*[!@#$%^&*]) : assert one special character
+    // {8,32}           : assert password is between 8-32 chars
+    var valid_password = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,32}$/;
+    return valid_password.test(password);
+}
+
 function doSignup() {
 
     firstName = document.getElementById("firstName").value;
@@ -66,6 +75,21 @@ function doSignup() {
 
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
+
+    if(!validate_password(password)) {// ? jan
+        /*
+        ! TODO
+        * make the user retype a valid password
+
+        * idea:
+        ! display red warning message with an explanation of what went wrong
+        */
+
+        console.log("invalid password");
+        return;
+    }
+
+    console.log("valid password");
 
     var hash = md5( password );
 
