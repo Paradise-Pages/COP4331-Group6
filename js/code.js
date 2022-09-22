@@ -64,7 +64,7 @@ function valid_username(username) {// ? jan
     // {3,18} : assert password is between 3-18 chars  
     // user must have at least one letter
     // user can use only NUMBER, LATIN CHARACTERS, UNDERSCORE, HYPENS
-    var valid_username_reg = /^(?=.*[a-zA-Z])[a-zA-Z0-9-_]+{3,18}$/;
+    var valid_username_reg = /^(?=.*[a-zA-Z])[a-zA-Z0-9-_]{3,18}$/;
     return valid_username_reg.test(username);
 }
 
