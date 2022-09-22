@@ -92,7 +92,7 @@ function doSignup() {
         * idea:
         ! display red warning message with an explanation of what went wrong
         */
-
+        document.getElementById("signupResult").innerHTML = "invalid password"
         console.log("invalid password");
         return;
     }
@@ -102,7 +102,7 @@ function doSignup() {
         * idea:
         ! display red warning message with an explanation of what went wrong
         */
-
+        document.getElementById("signupResult").innerHTML = "invalid username"
         console.log("invalid username");
         return;
     }

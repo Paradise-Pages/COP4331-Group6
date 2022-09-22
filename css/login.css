@@ -116,6 +116,21 @@
     left: 450px;
 }
 
+/* span formatting */
+#loginResult {
+    color:rgb(203, 55, 21);
+    font-family: 'Montserrat';
+    position: relative;
+    bottom: 170px;
+}
+/* span formatting */
+#signupResult {
+    color:rgb(203, 55, 21);
+    font-family: 'Montserrat';
+    position: relative;
+    bottom: 170px;
+}
+
 /* body formatting */
 body {
     background-color: #F3B02E;
