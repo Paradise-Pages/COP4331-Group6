@@ -103,9 +103,9 @@ function passExp() {
 
     //password validation
     passform.onkeyup = function () {
-        let nums = /[0-9]/g;
-        let lett = /[a-zA-Z]/g;
-        let spec = /[!@#$%^&*]/g;
+        var nums = /[0-9]/g;
+        var lett = /[a-zA-Z]/g;
+        var spec = /[!@#$%^&*]/g;
 
         //check length
         if (passform.value.length >= 8 && passform.value.length <= 32) {
@@ -177,10 +177,10 @@ function userExp() {
 
     //password validation
     userform.onkeyup = function () {
-        let nums = /[0-9]/g;
-        let lett = /[a-zA-Z]/g;
-        let hyp = /[-]/g;
-        let und = /[_]/g;
+        var nums = /[0-9]/g;
+        var lett = /[a-zA-Z]/g;
+        var hyp = /[-]/g;
+        var und = /[_]/g;
 
         //check length
         if (userform.value.length >= 3 && userform.value.length <= 18) {
