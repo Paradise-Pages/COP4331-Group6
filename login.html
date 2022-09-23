@@ -1,83 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-
-</html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paradise Pages Login</title>
-  <link rel="stylesheet" href="css/login.css" />
-  <script type="text/javascript" src="js/code.js"></script>
-  <script type="text/javascript" src="js/md5.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Island Moments' rel='stylesheet'>
-</head>
-
-<body>
-  <a href="index.html"><img id="logo" src="images/icon.png" alt="logo image"></a>
-  <br /><br /><br /><br />
-  <div class="form" id="wholeForm">
+  <!DOCTYPE html> 
+ <html lang="en"></html>
+   <head>
+    <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Pages Login</title>
+     <link rel="stylesheet" href="css/login.css"/>
+     <script type="text/javascript" src="js/code.js"></script>
+     <script type="text/javascript" src="js/md5.js"></script>
+     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+     <link href='https://fonts.googleapis.com/css?family=Island Moments' rel='stylesheet'>
+  </head>
+  <body>
+      <a href="index.html"><img id="logo" src="images/icon.png" alt="logo image"></a>
+      <br/><br/><br/><br/>
+  <div class="form">
     <div class="button-box">
       <div id="btn"></div>
       <button type="button" class="toggle-btn" onclick="clickRegister()">Login</button>
       <button type="button" class="toggle-btn" onclick="clickLogin()">Signup</button>
     </div>
     <form id="login" class="input-form">
-      <input type="text" class="input-field" id="loginName" placeholder="username" name="username" required pattern="(?=.*[a-zA-Z])[a-zA-Z0-9-_]{3,18}$"   oninvalid="this.setCustomValidity('Username should be between 3 and 18 characters and should include at least one letter')"
-      oninput="this.setCustomValidity('')"as />
-      <input type="password" class="input-field" id="loginPassword" placeholder="password" name="password" required pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}" />
-      <button type="submit" id="loginButton" class="submit-btn" onsubmit="doLogin();">Login</button>
-      <span class="text" style="color:rgb(203, 55, 21); font-family: 'Montserrat';" id="loginResult"></span>
+      <input type="text" class="input-field" id="loginName" placeholder="username" name = "username"/>
+      <input type="password" class="input-field" id="loginPassword" placeholder="password" name ="password"/>
+      <button type="button" id="loginButton" class="submit-btn" onclick="doLogin();">Login</button>
+      <span class="text" id="loginResult"></span>
     </form>
     <form id="signup" class="input-form">
-      <input type="text" class="input-field" id="firstName" placeholder="first&nbsp;name" name="firstName" required />
-      <input type="text" class="input-field" id="lastName" placeholder="last&nbsp;name" name="lastName" required />
-      <input type="text" class="input-field" id="username" placeholder="username" name="login" required
-        pattern="(?d)(?=.*[A-Za-z])(?[_])(?[-]).{3,18}" onclick="userExp()"
-        title="Must be between 3-13 characters and must contain at least one letter" />
-      <input type="password" class="input-field" id="password" placeholder="password" name="password" required
-        pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}"
-        title="Must be between 8-32 characters and must contain at least one number and one special character"
-        onfocus="passExp()" />
-      <button type="submit" id="signupButton" class="submit-btn" onsubmit="doSignup();">Signup</button><br />
-      <span class="text" style="color:rgb(203, 55, 21); font-family: 'Montserrat';" id="signupResult"></span>
-      <div id="explanation">
-        <h3>Password must contain the following:</h3>
-        <p id="passLen" class="invalid">
-          8 to 32 characters
-        </p>
-        <p id="passLett" class="invalid">
-          At least one letter
-        </p>
-        <p id="passNum" class="invalid">
-          At least one number
-        </p>
-        <p id="passSpec" class="invalid">
-          At least one special character
-        </p>
-      </div>
-      <div id="explanationUser">
-        <h3>Username must contain the following:</h3>
-        <p id="userLett" class="invalid">
-          At least one letter
-        </p>
-        <p id="userLen" class="invalid">
-          3 to 18 characters
-        </p>
-        <h3> Username may contain the following: </h3>
-        <p id="userNum" class="opt">
-          Numbers
-        </p>
-        <p id="userUnd" class="opt">
-          Underscores
-        </p>
-        <p id="userHyp" class="opt">
-          Hyphens
-        </p>
-      </div>
+        <input type="text" class="input-field" id="firstName" placeholder="first&nbsp;name" name = "firstName"/>
+        <input type="text" class="input-field" id="lastName" placeholder="last&nbsp;name" name ="lastName"/>
+        <input type="text" class="input-field" id="username" placeholder="username" name="login"/>
+        <input type="password" class="input-field" id="password" placeholder="password" name="password"/>
+        <button type="button" id="signupButton" class="submit-btn" onclick="doSignup();">Signup</button><br/>
+        <span class="text" style="color:rgb(203, 55, 21); font-family: 'Montserrat';" id="signupResult"></span>
     </form>
   </div>
-</body>
-
+  </body>
 </html>
+
+  

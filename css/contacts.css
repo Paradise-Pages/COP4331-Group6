@@ -186,7 +186,6 @@ p {
 }
 table{
     width:100%;
-    height: 500px;
     table-layout: fixed;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
