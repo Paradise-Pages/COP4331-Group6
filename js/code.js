@@ -81,15 +81,12 @@ function valid_password(password) {// ? jan
 
 function passExp() {
     console.log("IN PASSWORD FUNCTION");
-    var passform = document.getElementById("password");
-    var totalform = document.getElementById("wholeForm");
-    var numInput = document.getElementById("passNum");
-    var lettInput = document.getElementById("passLett");
-    var specInput = document.getElementById("passSpec");
-    var lenInput = document.getElementById("passLen");
-
-    passform.click();
-
+    let passform = document.getElementById("password");
+    let totalform = document.getElementById("wholeForm");
+    let numInput = document.getElementById("passNum");
+    let lettInput = document.getElementById("passLett");
+    let specInput = document.getElementById("passSpec");
+    let lenInput = document.getElementById("passLen");
 
     //password message displays
     passform.addEventListener("focus", ()=>  {
@@ -106,9 +103,9 @@ function passExp() {
 
     //password validation
     passform.onkeyup = function () {
-        var nums = /[0-9]/g;
-        var lett = /[a-zA-Z]/g;
-        var spec = /[!@#$%^&*]/g;
+        let nums = /[0-9]/g;
+        let lett = /[a-zA-Z]/g;
+        let spec = /[!@#$%^&*]/g;
 
         //check length
         if (passform.value.length >= 8 && passform.value.length <= 32) {
@@ -157,13 +154,13 @@ function passExp() {
 }
 
 function userExp() {
-    var userform = document.getElementById("username");
-    var totalform = document.getElementById("wholeForm");
-    var numInput = document.getElementById("userNum");
-    var lettInput = document.getElementById("userLett");
-    var lenInput = document.getElementById("userLen");
-    var hypInput = document.getElementById("userHyp");
-    var undInput = document.getElementById("userUnd");
+    let userform = document.getElementById("username");
+    let totalform = document.getElementById("wholeForm");
+    let numInput = document.getElementById("userNum");
+    let lettInput = document.getElementById("userLett");
+    let lenInput = document.getElementById("userLen");
+    let hypInput = document.getElementById("userHyp");
+    let undInput = document.getElementById("userUnd");
 
 
     //password message displays
@@ -180,10 +177,10 @@ function userExp() {
 
     //password validation
     userform.onkeyup = function () {
-        var nums = /[0-9]/g;
-        var lett = /[a-zA-Z]/g;
-        var hyp = /[-]/g;
-        var und = /[_]/g;
+        let nums = /[0-9]/g;
+        let lett = /[a-zA-Z]/g;
+        let hyp = /[-]/g;
+        let und = /[_]/g;
 
         //check length
         if (userform.value.length >= 3 && userform.value.length <= 18) {

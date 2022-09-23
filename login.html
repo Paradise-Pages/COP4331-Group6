@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <a href="index.html"><img id="logo" src="images/icon.png" alt="logo image"></a>
+  <a href="index.html"><img id="logo" src="images/icon.png" alt="Logo for Paradise Pages. Consists of a palm tree emerging from the spine of a book. Established 2022"></a>
   <br /><br /><br /><br />
   <div class="form" id="wholeForm">
     <div class="button-box">
@@ -39,8 +39,8 @@
       <input type="password" class="input-field" id="password" placeholder="password" name="password" required
         pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}"
         title="Must be between 8-32 characters and must contain at least one number and one special character"
-        onfocus="passExp()" />
-      <button type="submit" id="signupButton" class="submit-btn" onsubmit=" return doSignup()">Signup</button><br />
+        onclick="passExp()" />
+      <button type="submit" id="signupButton" class="submit-btn" onsubmit="doSignup()">Signup</button><br />
       <span class="text" style="color:rgb(203, 55, 21); font-family: 'Montserrat';" id="signupResult"></span>
       <div id="explanation">
         <h3>Password must contain the following:</h3>

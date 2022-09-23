@@ -1,4 +1,4 @@
-/* body formatting */
+/* body formatting  */
 body {
     background-color: #F3B02E;
     background-image: url('../images/background2.png');
@@ -9,7 +9,7 @@ body {
     overflow: hidden;
 }
 
-/* content from leinecker */
+/*content from leinecker*/
 .content {
     padding: 1px 16px;
     height: 1000px;
