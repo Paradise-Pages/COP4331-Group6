@@ -52,7 +52,7 @@
 }
 
 .input-field:valid {
-    border: 2px solid #009345;;
+    border: 2px solid #009345;
 }
 
 .input-field:invalid {
