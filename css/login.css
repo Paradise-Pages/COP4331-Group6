@@ -5,12 +5,14 @@
     background: rgba(155, 188, 115, 0.9);
     max-width: 350px;
     margin: 0 auto 100px;
+    top: -110px;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    overflow:hidden;
-    display:block;
-    height:350px;
+    overflow: hidden;
+    display: block;
+    height: 340px;
+    transition: .6s;
 }
 
 .input-field {
@@ -24,7 +26,7 @@
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
-    position:relative;
+    position: relative;
 }
 
 .submit-btn {
@@ -44,8 +46,71 @@
 }
 
 .input-form {
-    transition: .2s;
+    transition: .4s;
     position: absolute;
+}
+
+.input-field:valid {
+    border: 2px solid #009345;;
+}
+
+.input-field:invalid {
+    border: 2px solid red;
+}
+
+.input-field:invalid:required {
+    background-image: white;
+}
+
+#explanation,
+#explanationUser {
+    display: none;
+    color: #000;
+    position: relative;
+    bottom: 1px;
+    text-align: center;
+    font-family: 'Montserrat';
+
+}
+
+#explanation>p {
+    position: relative;
+    bottom: 10px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: #009345;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "😁";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "☹️";
+}
+
+.opt
+{
+    color: yellow;
+}
+
+.opt:before
+{
+    position: relative;
+    left: -35px;
+    content: "😐";
+    
 }
 
 .button-box {
@@ -58,18 +123,18 @@
 }
 
 .toggle-btn {
-    padding: 10px 30px;
+    padding: 10px 42px;
     cursor: pointer;
     background: transparent;
     border: 0;
     outline: none;
     position: relative;
-    color:#FFFFFF;
+    color: #FFFFFF;
     font-family: 'Montserrat';
     font-style: normal;
     font-size: 13px;
     text-transform: uppercase;
-    text-align:center;
+    text-align: center;
 }
 
 #btn {
@@ -78,9 +143,9 @@
     position: absolute;
     width: 140px;
     height: 100%;
-    background:   #897261;
+    background: #897261;
     border-radius: 30px;
-    transition: .2s;
+    transition: .4s;
 }
 
 #login {
@@ -103,9 +168,9 @@
 }
 
 #signup {
-    position:relative;
-    left:450px;
-    top:-172px;
+    position: relative;
+    left: 450px;
+    top: -172px;
 }
 
 .submit-btn:hover {
@@ -114,21 +179,6 @@
 
 .signup-form {
     left: 450px;
-}
-
-/* span formatting */
-#loginResult {
-    color:rgb(203, 55, 21);
-    font-family: 'Montserrat';
-    position: relative;
-    bottom: 170px;
-}
-/* span formatting */
-#signupResult {
-    color:rgb(203, 55, 21);
-    font-family: 'Montserrat';
-    position: relative;
-    bottom: 170px;
 }
 
 /* body formatting */
@@ -140,7 +190,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 /* logo formatting */
