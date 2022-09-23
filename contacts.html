@@ -1,98 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-
-</html>
-
+<!DOCTYPE html> 
+<html lang="en"></html>
 <head>
 	<title>Paradise Pages Contacts Page</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/contacts.css" />
+	<link rel="stylesheet" href="css/contacts.css"/>
 	<script type="text/javascript" src="js/code.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Island Moments' rel='stylesheet'>
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		document.addEventListener('DOMContentLoaded', function () {
-			readCookie();
-			loadContacts();
-		}, false);
+	document.addEventListener('DOMContentLoaded', function() 
+	{
+		readCookie();
+		loadContacts();
+	}, false);
 	</script>
 </head>
-
 <body>
 
-	<!--side navigation-->
-	<div class="sidenav">
-		<img id="logo" src="images/icon.png" alt="logo image">
-		<button type="button" id="logoutButton" class="sidebuttons font" onclick="doLogout();">Logout</button>
-		<a href="contacts.html">Contacts</a>
-		<a href="members.html">About Us</a>
+<!--side navigation-->
+<div class="sidenav">
+	<img id="logo" src="images/icon.png" alt="logo image">
+	<button type="button" id="logoutButton" class="sidebuttons font" onclick="doLogout();">Logout</button>
+	<a href="contacts.html">Contacts</a> 
+	<a href="members.html">About Us</a>
+</div>
+<!-- page content, each div inside content is formatted with flex-->
+<div class="content">
+	<div class="loggedInDiv">
+		<span style="color:#007D2F"id="userName"></span><br/>
 	</div>
-	<!-- page content, each div inside content is formatted with flex-->
-	<div class="content">
-		<div class="loggedInDiv">
-			<span style="color:#007D2F" id="userName"></span><br />
-		</div>
-		<div class="accessUIDiv">
-			<br />
-			<div class="column">
-				<div class="search-container">
-					<input onkeyup=searchContacts() type="text" name="search" id="searchText" placeholder="Search..."
-						class="search-input">
-					<a href="#" class="search-btn" type="button" id="searchContactButton" class="buttons font"
-						onclick="searchContacts();"><i class="fas fa-search"></i></a>
-				</div>
-			</div>
-			<div class="column"><button type="button" onclick=loadContacts()><i class="fa fa-refresh"
-						style="font-size:30px;color:rgba(155, 188, 115, 0.9)" aria-hidden="true"></i></button></div>
-			<div class="column"><button type="button" onclick=showTable()> <i class="fas fa-user-plus"
-						style="font-size:27px;color:rgba(155, 188, 115, 0.9)"></i></button></div>
-		</div>
-		<!--add contact form-->
-		<div class="addContacts">
-			<form id="addMe" action="" method="post">
-				<input type="text" id="contactTextFirst" placeholder="First Name" required>
-				<input type="text" id="contactTextLast" placeholder="Last Name" required>
-				<input type="text" id="contactTextNumber" placeholder="Phone Number" required
-					pattern="^[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
-					oninvalid="this.setCustomValidity('XXX-XXX-XXXX or XXXXXXXXXX')"
-					oninput="this.setCustomValidity('')" title="XXX-XXX-XXXX or XXXXXXXXXX">
-				<input type="text" id="contactTextEmail" placeholder="Email Address"
-					pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required
-					oninvalid="this.setCustomValidity('Email must have an @ and a proper domain')"
-					oninput="this.setCustomValidity('')" title="Email must have an @ and a proper domain">
-				<button type="submit" id="addContactButton" class="buttons font" onsubmit="addContact();"> Add Contact
-				</button>
-			</form>
-		</div>
-		<!--contact table-->
-		<div class="tables">
-			<div class="tbl-content" id="contactsTable">
-				<table id="contacts" cellpadding="0" cellspacing="0" border="0">
-					<thread>
-						<tr>
-							<th>First&nbspName</th>
-							<th>Last&nbspName</th>
-							<th>Email</th>
-							<th>Phone</th>
-							<th></th>
-						</tr>
-					</thread>
-					<tbody id="tbody"></tbody>
-				</table>
-			</div>
-		</div>
+	<div class="accessUIDiv">	
+		<br/><div class="column"><div class="search-container">
+			<input onkeyup=searchContacts() type="text" name="search" id="searchText" placeholder="Search..." class="search-input">
+			<a href="#" class="search-btn" type="button" id="searchContactButton" class="buttons font" onclick="searchContacts();"><i class="fas fa-search"></i></a>
+		</div></div>
+		<div class="column"><button type="button" onclick=loadContacts()><i class="fa fa-refresh" style="font-size:30px;color:rgba(155, 188, 115, 0.9)" aria-hidden="true"></i></button></div>
+		<div class="column"><button type="button" onclick=showTable()> <i class="fas fa-user-plus" style="font-size:27px;color:rgba(155, 188, 115, 0.9)"></i></button></div>
 	</div>
+	<!--add contact form-->
+	<div class="addContacts">
+		<form id="addMe" action="" method="post">
+			<input type="text" id="contactTextFirst" placeholder="First Name">
+			<input type="text" id="contactTextLast" placeholder="Last Name">
+			<input type="text" id="contactTextNumber" placeholder="Phone Number">
+			<input type="text" id="contactTextEmail" placeholder="Email Address">
+			<button type="button" id="addContactButton" class="buttons font" onclick="addContact();"> Add Contact </button>
+	  </form>
+	</div>
+	<!--contact table-->
+	<div class="tables">
+	  <div class="tbl-content" id="contactsTable">
+		<table id="contacts" cellpadding="0" cellspacing="0" border="0">
+			<thread>
+				<tr>
+				<th>First&nbspName</th>
+				<th>Last&nbspName</th>	
+				<th>Email</th>
+				<th>Phone</th>
+				<th></th>
+				</tr>
+			</thread>
+		  <tbody id="tbody"></tbody>
+		</table>
+	  </div>
+	</div>
+ </div>
 </body>
-
 </html>

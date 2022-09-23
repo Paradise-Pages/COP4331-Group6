@@ -1,7 +1,7 @@
 /* body formatting */
 body {
     background-color: #F3B02E;
-    background-image: url('../images/background2.png');
+    background-image: url('../images/background2.png'); 
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -20,28 +20,24 @@ body {
     flex-direction: column;
     align-items: flex-start;
 }
-
 .loggedInDiv {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat'; 
     font-weight: bolder;
     font-size: 2vw;
     align-self: center;
 }
-
 .accessUIDiv {
     margin: 10px;
     padding: 10px 10px;
     text-align: center;
     align-self: center;
 }
-
 .column {
     display: inline-block;
     padding: 10px 10px;
     vertical-align: middle;
 }
-
-.column button {
+.column button{
     position: relative;
     background: #ffffff;
     border-radius: 50%;
@@ -59,11 +55,9 @@ body {
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-
 .tables {
     align-self: center;
 }
-
 .addContacts {
     align-self: center;
 }
@@ -81,7 +75,6 @@ body {
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
 #addMe input {
     border-radius: 17px;
     font-family: 'Montserrat';
@@ -94,27 +87,12 @@ body {
     box-sizing: border-box;
     font-size: 14px;
 }
-
-
-#addMe>input:valid {
-    border: 2px solid #009345;
-    ;
-}
-
-#addMe>input:invalid {
-    border: 2px solid red;
-}
-
-#addMe>input:invalid:required {
-    background-image: white;
-}
-
 #addMe button {
     border-radius: 17px;
     font-family: 'Montserrat';
     outline: 0;
     background: #78500b;
-    color: rgba(234, 207, 155, 0.9);
+    color:rgba(234, 207, 155, 0.9);
     width: 100%;
     border: 0;
     margin: 0 0 15px;
@@ -144,22 +122,21 @@ body {
     font-style: normal;
     font-weight: bolder;
     font-size: 2.3vw;
-    background: none;
-    border: none;
+    background:none;
+    border:none;
     cursor: pointer;
-    padding: 0.3em 1.2em;
-    margin: 0.6em 0.3em 0.3em 0;
+    padding:0.3em 1.2em;
+    margin:0.6em 0.3em 0.3em 0;
     float: right;
 }
-
-.btn:hover {
-    color: #897261;
+.btn:hover{
+    color:#897261;
 }
 
 /* search bar formatting */
-.search-container {
+.search-container{
     background: #fff;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat'; 
     height: 30px;
     width: 400px;
     border-radius: 30px;
@@ -169,52 +146,45 @@ body {
     align-items: center;
     cursor: pointer;
     transition: 0.8s;
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
-        -4px -4px 6px 0 rgba(116, 125, 136, .2),
-        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-        inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
 }
 
-.search-container:hover>.search-input {
+.search-container:hover > .search-input{
     width: 400px;
 }
-
-.search-container .search-input {
+.search-container .search-input{
     background: transparent;
     border: none;
-    outline: none;
+    outline:none;
     width: 0px;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat'; 
     font-weight: 500;
     font-size: 16px;
     transition: 0.8s;
 }
-
-.search-container .search-btn .fas {
+.search-container .search-btn .fas{
     color: rgba(155, 188, 115, 0.9);
 }
-
-.search-container:hover {
-    animation: linear 3;
+.search-container:hover{
+  animation: linear 3;
 }
-
 span {
     color: rgb(164, 0, 0);
-    font-family: 'Montserrat';
+    font-family: 'Montserrat'; 
 }
-
 p {
     color: rgb(164, 0, 0);
-    font-family: 'Montserrat';
+    font-family: 'Montserrat';  
 }
 
 /* table formatting */
 #contactsTable {
     display: block;
 }
-
-
-table {
+table{
     width:100%;
     height: 500px;
     table-layout: fixed;
@@ -222,27 +192,22 @@ table {
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
-
-.tbl-content {
-    height: 300px;
-    overflow-x: auto;
+.tbl-content{
+    height:300px;
+    overflow-x:auto;
     margin-top: 0px;
     border: 1px solid rgba(155, 188, 115, 0.9);
 }
-
-#contacts td,
-#contacts th {
-    border: 1px solid rgba(155, 188, 115, 0.9);
+#contacts td, #contacts th {
+    border: 1px solid rgba(155, 188, 115, 0.9); 
 }
-
 #contacts tr:hover {
-    background-color: #478fbb;
+    background-color: #478fbb; 
 }
-
-#contacts th {
+#contacts th{
     padding: 20px 15px;
     text-align: left;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat'; 
     font-weight: 500;
     font-size: 16px;
     font-weight: bold;
@@ -250,12 +215,11 @@ table {
     background-color: rgba(155, 188, 115, 0.9);
     text-transform: uppercase;
 }
-
-#contacts td {
+#contacts td{
     padding: 15px;
     text-align: left;
-    font-family: 'Montserrat';
-    vertical-align: middle;
+    font-family: 'Montserrat'; 
+    vertical-align:middle;
     font-weight: 300;
     font-size: 15px;
     font-weight: bold;
@@ -266,25 +230,22 @@ table {
 /* for custom scrollbar for webkit browser*/
 ::-webkit-scrollbar {
     width: 6px;
-}
-
+} 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+} 
 ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
 }
 
 /*side navigation menu*/
-.sidenav img {
+.sidenav img{
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 70%;
     position: relative;
 }
-
 .sidenav {
     width: 264px;
     height: 100%;
@@ -292,10 +253,8 @@ table {
     padding: 0;
     left: 0px;
     top: 0px;
-    overflow: auto;
-    /*disables horizontal scroll*/
-    position: fixed;
-    /*scroll bar stays in place when user is scrolling*/
+    overflow: auto; /*disables horizontal scroll*/
+    position: fixed; /*scroll bar stays in place when user is scrolling*/
     background: rgba(155, 188, 115, 0.9);
 }
 
@@ -312,7 +271,6 @@ table {
     line-height: 44px;
     color: #007D2F;
 }
-
 .buttons {
     padding: 10px 0px 15px 0px;
     display: block;
@@ -323,19 +281,15 @@ table {
     padding: 10px 0px 15px 0px;
     display: inline-block;
 }
-
-.sidebuttons:hover {
+.sidebuttons:hover{
+    color:#897261;  
+}
+.buttons:hover{
+    color:#897261;  
+}
+.sidenav a:hover{
     color: #897261;
 }
-
-.buttons:hover {
-    color: #897261;
-}
-
-.sidenav a:hover {
-    color: #897261;
-}
-
 .font {
     text-align: center;
     font-family: 'Montserrat';
@@ -344,8 +298,8 @@ table {
     font-size: 25px;
     line-height: 44px;
     color: #007D2F;
-    background: none;
-    border: none;
+    background:none;
+    border:none;
     cursor: pointer;
     margin-left: 80px;
 }
@@ -353,55 +307,42 @@ table {
 /* make sidebar a topbar for mobile view*/
 @media screen and (max-width: 700px) {
     body {
-        background-image: url('../images/backgroundmobile2.png');
+        background-image: url('../images/backgroundmobile2.png') ; 
     }
-
-    .sidenav {
+	.sidenav {
         width: 100%;
         height: auto;
         position: relative;
-        overflow: hidden;
-        /*hides scroll bar*/
-        position: sticky;
+        overflow: hidden; /*hides scroll bar*/
+        position:sticky;
 
     }
-
     .sidebuttons {
         position: relative;
         font-size: 4vw;
-        top: 5px;
+        top:5px;
     }
-
-    .sidenav a {
+    .sidenav a{
         display: inline-block;
         padding: 10px;
         font-size: 4vw;
-        top: 5px;
+        top:5px;
         position: relative;
-    }
-
-    .sidenav img {
+       }
+    .sidenav img{
         width: 12vw;
-        float: left;
+        float:left;
     }
-
     div.content {
         margin-left: 0;
     }
-
-    .buttons {
-        margin-left: 100px;
-    }
-}
-
+    .buttons{margin-left: 100px;}
+} 
 /*displays the bar vertically*/
 @media screen and (max-width: 400px) {
-    .sidenav a {
+	.sidenav a{
         text-align: center;
-        float: none;
+        float:none;
     }
-
-    .sidenav img {
-        width: 40%;
-    }
-}
+    .sidenav img{width: 40%;}
+} 

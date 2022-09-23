@@ -1,5 +1,4 @@
 /* login form */
-/*HEELO*/
 .form {
     border-radius: 17px;
     position: relative;
@@ -52,7 +51,7 @@
 }
 
 .input-field:valid {
-    border: 2px solid #009345;
+    border: 2px solid #009345;;
 }
 
 .input-field:invalid {
