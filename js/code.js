@@ -240,8 +240,39 @@ function userExp() {
     }
 }
 
-function doSignup() {
+function checkUsername(username) {//? jan
+    //! untested
+    let tmp = {
+        login: username
+    };
 
+    let jsonPayload = JSON.stringify(tmp);
+
+    let url = urlBase + '/SearchUsers.' + extension;
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    
+    var flag = 0;
+    var jsonObject;
+
+    try {
+        xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                jsonObject = JSON.parse(xhr.responseText);
+            } else {
+                return true;// return true to stop the program...
+            }
+        };
+        xhr.send(jsonPayload);
+        return jsonObject.Error;// if this is NOT null, then we havve a duplicate value
+    } catch (err) {
+        console.log(err.message);
+        return true;// return true to stop the program
+    }
+}
+
+function doSignup() {
 
     firstName = document.getElementById("firstName").value;
     lastName = document.getElementById("lastName").value;
@@ -250,10 +281,6 @@ function doSignup() {
     let password = document.getElementById("password").value;
 
     if(!valid_password(password)) {// ? jan
-        /*
-        * idea:
-        ! display red warning message with an explanation of what went wrong
-        */
 
         console.log("invalid password");
         return;
@@ -262,6 +289,12 @@ function doSignup() {
     if(!valid_username(username)) {// ? jan
 
         console.log("invalid username");
+        return;
+    }
+
+    if(checkUsername(username)) {
+        //! untested
+        console.log("Duplicate Username, or Internal Server Error!");
         return;
     }
 
