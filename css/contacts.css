@@ -19,6 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    overflow: hidden;
 }
 
 .loggedInDiv {
@@ -211,12 +212,12 @@ p {
 /* table formatting */
 #contactsTable {
     display: block;
+    height: 500px;
 }
 
 
 table {
     width:100%;
-    height: 500px;
     table-layout: fixed;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -261,6 +262,13 @@ table {
     font-weight: bold;
     color: #66471b;
     background-color: antiquewhite;
+}
+#contacts td span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 100%;
+    color: #66471b;
 }
 
 /* for custom scrollbar for webkit browser*/

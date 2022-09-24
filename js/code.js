@@ -7,7 +7,6 @@ let lastName = "";
 const ids = []
 
 function doLogin() {
-
     userId = 0;
     firstName = "";
     lastName = "";
@@ -16,7 +15,11 @@ function doLogin() {
     let password = document.getElementById("loginPassword").value;
 
     var hash = md5(password);
-
+    if (!validLoginForm(login, password))
+    {
+        document.getElementById("loginResult").innerHTML = "invalid username or password";
+        return;
+    }
     document.getElementById("loginResult").innerHTML = "";
 
     let tmp = {
@@ -31,10 +34,8 @@ function doLogin() {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
     try {
         xhr.onreadystatechange = function () {
-
             if (this.readyState == 4 && this.status == 200) {
 
                 let jsonObject = JSON.parse(xhr.responseText);
@@ -44,12 +45,10 @@ function doLogin() {
                     document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
                     return;
                 }
-
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
 
                 saveCookie();
-
                 window.location.href = "contacts.html";
             }
         };
@@ -60,27 +59,7 @@ function doLogin() {
     }
 }
 
-function valid_username(username) {// ? jan
-
-    // {3,18} : assert password is between 3-18 chars  
-    // user must have at least one letter
-    // user can use only NUMBER, LATIN CHARACTERS, UNDERSCORE, HYPENS
-    var valid_username_reg = /^(?=.*[a-zA-Z])[a-zA-Z0-9-_]{3,18}$/;
-    return valid_username_reg.test(username);
-}
-
-function valid_password(password) {// ? jan
-
-    // (?=.*[0-9])      : assert one NUMBER
-    // (?=.*[!@#$%^&*]) : assert one SPECIAL CHAR
-    // {8,32}           : assert password is between 8-32 chars
-    // can contain any number of LATIN characters 
-    var valid_password_reg = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,32}$/;
-    return valid_password_reg.test(password);
-}
-
 function passExp() {
-    console.log("IN PASSWORD FUNCTION");
     let passform = document.getElementById("password");
     let totalform = document.getElementById("wholeForm");
     let numInput = document.getElementById("passNum");
@@ -89,16 +68,15 @@ function passExp() {
     let lenInput = document.getElementById("passLen");
 
     //password message displays
-    passform.addEventListener("focus", ()=>  {
-        console.log("IN PASSWORD FIELD");
+    passform.addEventListener("focus", () => {
         document.getElementById("explanation").style.display = "block";
-        totalform.style.height = "535px";
+        totalform.style.minHeight = "570px";
     });
 
     //password message goes away
     passform.onblur = function () {
         document.getElementById("explanation").style.display = "none";
-        totalform.style.height = "340px";
+        totalform.style.minHeight = "360px";
     }
 
     //password validation
@@ -162,17 +140,18 @@ function userExp() {
     let hypInput = document.getElementById("userHyp");
     let undInput = document.getElementById("userUnd");
 
+    let req = 0;
 
     //password message displays
     userform.onfocus = function () {
         document.getElementById("explanationUser").style.display = "block";
-        totalform.style.height = "650px";
+        totalform.style.minHeight = "675px";
     }
 
     //password message goes away
     userform.onblur = function () {
         document.getElementById("explanationUser").style.display = "none";
-        totalform.style.height = "340px";
+        totalform.style.minHeight = "360px";
     }
 
     //password validation
@@ -183,27 +162,30 @@ function userExp() {
         var und = /[_]/g;
 
         //check length
-        if (userform.value.length >= 3 && userform.value.length <= 18) {
+        if ((userform.value.length >= 3 && userform.value.length <= 18)) {
             lenInput.classList.remove("invalid");
             lenInput.classList.add("valid");
+
         }
 
         else {
             lenInput.classList.remove("valid");
             lenInput.classList.add("invalid");
+
         }
 
         //check letters
-        if (userform.value.match(lett)) {
+        if ((userform.value.match(lett))) {
+
             lettInput.classList.remove("invalid");
             lettInput.classList.add("valid");
         }
 
         else {
+
             lettInput.classList.remove("valid");
             lettInput.classList.add("invalid");
         }
-
 
         //check numbers
         if (userform.value.match(nums)) {
@@ -238,29 +220,25 @@ function userExp() {
             undInput.classList.add("opt");
         }
     }
+
+    if (req >= 2) {
+        return true;
+    }
+
+    return false;
 }
   
 function doSignup() {
-
     firstName = document.getElementById("firstName").value;
     lastName = document.getElementById("lastName").value;
 
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    if(!valid_password(password)) {// ? jan
-
-        console.log("invalid password");
+    if(!validSignUpForm(firstName, lastName, username, password)) {
+        document.getElementById("signupResult").innerHTML = "invalid signup";
         return;
     }
-
-    if(!valid_username(username)) {// ? jan
-
-        console.log("invalid username");
-        return;
-    }
-
-    console.log("valid password and username");
 
     var hash = md5(password);
 
@@ -283,20 +261,21 @@ function doSignup() {
 
     try {
         xhr.onreadystatechange = function () {
-
+            
             if(this.readyState != 4) {
-                return; //!
+                return; 
             }
 
             if(this.status == 409) {
-                return; //! duplicate username
+                document.getElementById("signupResult").innerHTML = "User already exists";
+                return; 
             }
 
             if (this.status == 200) {
 
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
-                document.getElementById("signupResult").innerHTML = "User added, please LOGIN";
+                document.getElementById("signupResult").innerHTML = "User added";
                 firstName = jsonObject.firstName;
                 lastName = jsonObject.lastName;
                 saveCookie();
@@ -433,18 +412,18 @@ function loadContacts() {
                 let text = "<table border='1'>"
                 for (let i = 0; i < jsonObject.results.length; i++) {
                     ids[i] = jsonObject.results[i].ID
-                    text += "<tr id='row"+i+"'>"
-					text += "<td id='first_Name"+i+"'>" + jsonObject.results[i].FirstName +"</td>";
-                    text += "<td id='last_Name"+i+"'>" + jsonObject.results[i].LastName + "</td>";
-                    text += "<td id='email"+i+"'>" + jsonObject.results[i].EmailAddress + "</td>";
-                    text += "<td id='phone"+i+"'>" + jsonObject.results[i].PhoneNumber + "</td>";
-                    text += "<td>"+
-                    "<button type='button' id='edit_button"+i+"' class='w3-button w3-circle w3-lime' onclick='edit_row("+i+")'>" + "<span class='glyphicon glyphicon-edit'></span>" + "</button>" +
-                    "<button type='button' id='save_button"+i+"' value='Save' class='w3-button w3-circle w3-lime' onclick='save_row("+i+")' style='display: none'>"+ "<span class='glyphicon glyphicon-saved'></span>" + "</button>" +
-                    "<button type='button' onclick='delete_row("+i+")' class='w3-button w3-circle w3-amber'>" + "<span class='glyphicon glyphicon-trash'></span> " + "</button>" + "</td>";
-                    text += "<tr/>"	
-				}
-                text += "</table>"    
+                    text += "<tr id='row" + i + "'>"
+                    text += "<td id='first_Name" + i + "'><span>" + jsonObject.results[i].FirstName + "</span></td>";
+                    text += "<td id='last_Name" + i + "'><span>" + jsonObject.results[i].LastName + "</span></td>";
+                    text += "<td id='email" + i + "'><span>" + jsonObject.results[i].EmailAddress + "</span></td>";
+                    text += "<td id='phone" + i + "'><span>" + jsonObject.results[i].PhoneNumber + "</span></td>";
+                    text += "<td>" +
+                        "<button type='button' id='edit_button" + i + "' class='w3-button w3-circle w3-lime' onclick='edit_row(" + i + ")'>" + "<span class='glyphicon glyphicon-edit'></span>" + "</button>" +
+                        "<button type='button' id='save_button" + i + "' value='Save' class='w3-button w3-circle w3-lime' onclick='save_row(" + i + ")' style='display: none'>" + "<span class='glyphicon glyphicon-saved'></span>" + "</button>" +
+                        "<button type='button' onclick='delete_row(" + i + ")' class='w3-button w3-circle w3-amber'>" + "<span class='glyphicon glyphicon-trash'></span> " + "</button>" + "</td>";
+                    text += "<tr/>"
+                }
+                text += "</table>"
                 document.getElementById("tbody").innerHTML = text;
             }
         };
@@ -454,20 +433,19 @@ function loadContacts() {
     }
 }
 
-function edit_row(id)
-{
-    document.getElementById("edit_button"+id).style.display="none";
-    document.getElementById("save_button"+id).style.display="inline-block";
-   
-    var firstNameI=document.getElementById("first_Name"+id);
-    var lastNameI=document.getElementById("last_Name"+id);
-    var email=document.getElementById("email"+id);
-    var phone=document.getElementById("phone"+id);
+function edit_row(id) {
+    document.getElementById("edit_button" + id).style.display = "none";
+    document.getElementById("save_button" + id).style.display = "inline-block";
 
-    var namef_data = firstNameI.innerHTML;
-    var namel_data = lastNameI.innerHTML;
-    var email_data = email.innerHTML;
-    var phone_data = phone.innerHTML;
+    var firstNameI = document.getElementById("first_Name" + id);
+    var lastNameI = document.getElementById("last_Name" + id);
+    var email = document.getElementById("email" + id);
+    var phone = document.getElementById("phone" + id); 
+
+    var namef_data = firstNameI.innerText;
+    var namel_data = lastNameI.innerText;
+    var email_data = email.innerText;
+    var phone_data = phone.innerText;
 
     firstNameI.innerHTML = "<input type='text' id='namef_text" + id + "' value='" + namef_data + "'>";
     lastNameI.innerHTML = "<input type='text' id='namel_text" + id + "' value='" + namel_data + "'>";
@@ -487,8 +465,8 @@ function save_row(no) {
     document.getElementById("email" + no).innerHTML = email_val;
     document.getElementById("phone" + no).innerHTML = phone_val;
 
-    document.getElementById("edit_button"+no).style.display="inline-block";
-    document.getElementById("save_button"+no).style.display="none";
+    document.getElementById("edit_button" + no).style.display = "inline-block";
+    document.getElementById("save_button" + no).style.display = "none";
 
     let tmp = {
         phoneNumber: phone_val,
@@ -519,14 +497,16 @@ function save_row(no) {
 }
 
 function delete_row(no) {
-    var namef_val = document.getElementById("first_Name" + no).innerHTML;
-    var namel_val = document.getElementById("last_Name" + no).innerHTML;
-    let check = confirm('Confirm deletion of contact: ' + namef_val + ' ' + namel_val);
+    var namef_val = document.getElementById("first_Name" + no).innerText;
+    var namel_val = document.getElementById("last_Name" + no).innerText;
+    nameOne = namef_val.substring(0, namef_val.length-1);
+    nameTwo = namel_val.substring(0, namel_val.length-1);
+    let check = confirm('Confirm deletion of contact: ' + nameOne + ' ' + nameTwo);
     if (check === true) {
         document.getElementById("row" + no + "").outerHTML = "";
         let tmp = {
-            firstName: namef_val,
-            lastName: namel_val,
+            firstName: nameOne,
+            lastName: nameTwo,
             userId: userId
         };
 
@@ -540,6 +520,7 @@ function delete_row(no) {
         try {
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
+                    
                     console.log("Contact has been deleted");
                     loadContacts();
                 }
@@ -594,4 +575,114 @@ function clickRegister() {
     log.style.left = "0px";
     but.style.left = "0px";
 
+}
+
+function validLoginForm(logName, logPass) {
+
+    var logNameErr = logPassErr = true;
+
+    if (logName == "") {
+        console.log("USERNAME IS BLANK");
+    }
+    else {
+        var regex = /(?=.*[a-zA-Z])[a-zA-Z0-9-_]{3,18}$/;
+
+        if (regex.test(logName) == false) {
+            console.log("USERNAME IS NOT VALID");
+        }
+
+        else {
+
+            console.log("USERNAME IS VALID");
+            logNameErr = false;
+        }
+    }
+
+    if (logPass == "") {
+        console.log("PASSWORD IS BLANK");
+        logPassErr = true;
+    }
+    else {
+        var regex = /(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}/;
+
+        if (regex.test(logPass) == false) {
+            console.log("PASSWORD IS NOT VALID");
+        }
+
+        else {
+
+            console.log("PASSWORD IS VALID");
+            logPassErr = false;
+        }
+    }
+
+    if ((logNameErr || logPassErr) == true) {
+        return false;
+    }
+   return true;
+
+}
+
+function validSignUpForm(fName, lName, user, pass) {
+
+    var fNameErr = lNameErr = userErr = passErr = true;
+
+    if (fName == "") {
+        console.log("FIRST NAME IS BLANK");
+    }
+    else {
+        console.log("first name IS VALID");
+        fNameErr = false;
+    }
+
+    if (lName == "") {
+        console.log("LAST NAME IS BLANK");
+    }
+    else {
+        console.log("LAST name IS VALID");
+        lNameErr = false;
+    }
+    ///////////////////////////////////////////////////////////////////
+    if (user == "") {
+        console.log("USERNAME IS BLANK");
+    }
+    else {
+        var regex = /(?=.*[a-zA-Z])([a-zA-Z0-9-_]).{3,18}$/;
+
+        if (regex.test(user) == false) {
+            console.log("USERNAME IS NOT VALID");
+        }
+
+        else {
+
+            console.log("USERNAME IS VALID");
+            userErr = false;
+        }
+    }
+
+    if (pass == "") {
+        console.log("PASSWORD IS BLANK");
+    }
+    else {
+        var regex = /(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}/;
+
+        if (regex.test(pass) == false) {
+            console.log("PASSWORD IS NOT VALID");
+        }
+
+        else {
+
+            console.log("PASSWORD IS VALID");
+            passErr = false;
+        }
+    }
+
+    if ((fNameErr || lNameErr || userErr || passErr) == true) {
+       return false;
+     
+    }
+   
+    return true;
+
+    
 }

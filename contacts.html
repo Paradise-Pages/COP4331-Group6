@@ -63,15 +63,11 @@
 			<form id="addMe" action="" method="post">
 				<input type="text" id="contactTextFirst" placeholder="First Name" required>
 				<input type="text" id="contactTextLast" placeholder="Last Name" required>
-				<input type="text" id="contactTextNumber" placeholder="Phone Number" required
-					pattern="^[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
-					oninvalid="this.setCustomValidity('XXX-XXX-XXXX or XXXXXXXXXX')"
-					oninput="this.setCustomValidity('')" title="XXX-XXX-XXXX or XXXXXXXXXX">
-				<input type="text" id="contactTextEmail" placeholder="Email Address"
-					pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required
-					oninvalid="this.setCustomValidity('Email must have an @ and a proper domain')"
-					oninput="this.setCustomValidity('')" title="Email must have an @ and a proper domain">
-				<button type="submit" id="addContactButton" class="buttons font" onsubmit="addContact();"> Add Contact
+				<input type="text" id="contactTextNumber" placeholder="XXX-XXX-XXXX" required
+					pattern="^[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$">
+				<input type="text" id="contactTextEmail" placeholder="name@email.com"
+					pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
+				<button type="button" id="addContactButton" class="buttons font" onclick="addContact();"> Add Contact
 				</button>
 			</form>
 		</div>

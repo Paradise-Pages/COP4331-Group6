@@ -1,5 +1,4 @@
 /* login form */
-/*HELLO*/
 .form {
     border-radius: 17px;
     position: relative;
@@ -77,6 +76,20 @@
 #explanation>p {
     position: relative;
     bottom: 10px;
+}
+
+#loginResult {
+    position: relative;
+    bottom: 175px;
+    color:rgb(203, 55, 21); 
+    font-family: 'Montserrat';
+}
+
+#signupResult {
+    position: relative;
+    bottom: 350px;
+    color:rgb(203, 55, 21); 
+    font-family: 'Montserrat';
 }
 
 /* Add a green text color and a checkmark when the requirements are right */
