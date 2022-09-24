@@ -538,23 +538,29 @@ function searchContacts() {
     const content = document.getElementById("searchText");
     const selections = content.value.toUpperCase().split(' ');
     const table = document.getElementById("contacts");
-    const tr = table.getElementsByTagName("tr");
+    const tr = table.getElementsByTagName("tr");// Table Row
 
     for (let i = 0; i < tr.length; i++) {
-      const td = tr[i].getElementsByTagName("td")[0];
-  
-      if (td) {
-        const txtValue = td.textContent || td.innerText;
-          tr[i].style.display = "none"; 
+      const td_fn = tr[i].getElementsByTagName("td")[0];// Table Data: First Name
+      const td_ln = tr[i].getElementsByTagName("td")[1];// Table Data: Last Name
+
+      if (td_fn && td_ln) {
+        const txtValue_fn = td_fn.textContent || td_fn.innerText;
+        const txtValue_ln = td_ln.textContent || td_ln.innerText;
+        tr[i].style.display = "none";
           
-        for (selection of selections) { 
-          if (txtValue.toUpperCase().indexOf(selection) > -1) {
+        for (selection of selections) {
+          if (txtValue_fn.toUpperCase().indexOf(selection) > -1) {
             tr[i].style.display = "";        
+          } 
+          if (txtValue_ln.toUpperCase().indexOf(selection) > -1) {
+            tr[i].style.display = "";
           }
-        }       
+        }
       }
     }
 }
+   
 
 function clickLogin() {
     var log = document.getElementById("login");
