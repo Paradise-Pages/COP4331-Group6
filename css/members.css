@@ -12,6 +12,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
+    overflow:hidden;
 }
 
 
@@ -99,9 +100,9 @@ body {
 }
 
 .container {
-    overflow-y: scroll;
     width: 100%;
     margin-top: 70px;
+    overflow:hidden;
   }
   /* grid w/images and names */
   .grid-container {
