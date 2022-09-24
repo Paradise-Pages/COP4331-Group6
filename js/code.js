@@ -239,7 +239,7 @@ function userExp() {
         }
     }
 }
-
+  
 function doSignup() {
 
     firstName = document.getElementById("firstName").value;
@@ -284,7 +284,15 @@ function doSignup() {
     try {
         xhr.onreadystatechange = function () {
 
-            if (this.readyState == 4 && this.status == 200) {
+            if(this.readyState != 4) {
+                return; //!
+            }
+
+            if(this.status == 409) {
+                return; //! duplicate username
+            }
+
+            if (this.status == 200) {
 
                 let jsonObject = JSON.parse(xhr.responseText);
                 userId = jsonObject.id;
