@@ -12,30 +12,24 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT * FROM Users WHERE Login like ?");
-		$colorName = "%" . $inData["login"] . "%";
-		$stmt->bind_param("s", $colorName);
+		$stmt = $conn->prepare("SELECT * FROM Users WHERE Login= ?");
+		$stmt->bind_param("s", $inData["login"]);
 		$stmt->execute();
 
 		$result = $stmt->get_result();
 
 		while($row = $result->fetch_assoc())
 		{
-			if( $searchCount > 0 )
-			{
-				$searchResults .= ",";
-			}
 			$searchCount++;
-			$searchResults .= '{"FirstName" : "' . $row["FirstName"]. '", "LastName" : "' . $row["LastName"]. '", "Login" : "' . $row["Login"]. '", "ID" : "' . $row["ID"]. '"}';
 		}
 
 		if( $searchCount == 0 )
 		{
-			returnWithError( "No Records Found" );
+			returnWithInfo( "" );
 		}
 		else
 		{
-			returnWithInfo( $searchResults );
+			returnWithError( "Username has been taken" );
 		}
 
 		$stmt->close();
@@ -55,13 +49,13 @@
 
 	function returnWithError( $err )
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"Error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 
-	function returnWithInfo( $searchResults )
+	function returnWithInfo( $info )
 	{
-		$retValue = '{"results":[' . $searchResults . '],"error":""}';
+		$retValue = '{"Error": "' . $info . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 
