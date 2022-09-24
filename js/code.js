@@ -15,8 +15,7 @@ function doLogin() {
     let password = document.getElementById("loginPassword").value;
 
     var hash = md5(password);
-    if (!validLoginForm(login, password))
-    {
+    if (!validLoginForm(login, password)) {
         document.getElementById("loginResult").innerHTML = "invalid username or password";
         return;
     }
@@ -227,7 +226,7 @@ function userExp() {
 
     return false;
 }
-  
+
 function doSignup() {
     firstName = document.getElementById("firstName").value;
     lastName = document.getElementById("lastName").value;
@@ -235,7 +234,7 @@ function doSignup() {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    if(!validSignUpForm(firstName, lastName, username, password)) {
+    if (!validSignUpForm(firstName, lastName, username, password)) {
         document.getElementById("signupResult").innerHTML = "invalid signup";
         return;
     }
@@ -261,14 +260,14 @@ function doSignup() {
 
     try {
         xhr.onreadystatechange = function () {
-            
-            if(this.readyState != 4) {
-                return; 
+
+            if (this.readyState != 4) {
+                return;
             }
 
-            if(this.status == 409) {
+            if (this.status == 409) {
                 document.getElementById("signupResult").innerHTML = "User already exists";
-                return; 
+                return;
             }
 
             if (this.status == 200) {
@@ -356,6 +355,10 @@ function addContact() {
     let phonenumber = document.getElementById("contactTextNumber").value;
     let emailaddress = document.getElementById("contactTextEmail").value;
 
+    if (!validAddContact(firstname,lastname,phonenumber, emailaddress)) {
+        console.log("INVALID FIRST NAME, LAST NAME, PHONE, OR EMAIL SUBMITTED");
+        return;
+    }
     let tmp = {
         firstName: firstname,
         lastName: lastname,
@@ -363,6 +366,7 @@ function addContact() {
         emailAddress: emailaddress,
         userId: userId
     };
+
 
     let jsonPayload = JSON.stringify(tmp);
 
@@ -440,7 +444,7 @@ function edit_row(id) {
     var firstNameI = document.getElementById("first_Name" + id);
     var lastNameI = document.getElementById("last_Name" + id);
     var email = document.getElementById("email" + id);
-    var phone = document.getElementById("phone" + id); 
+    var phone = document.getElementById("phone" + id);
 
     var namef_data = firstNameI.innerText;
     var namel_data = lastNameI.innerText;
@@ -499,8 +503,8 @@ function save_row(no) {
 function delete_row(no) {
     var namef_val = document.getElementById("first_Name" + no).innerText;
     var namel_val = document.getElementById("last_Name" + no).innerText;
-    nameOne = namef_val.substring(0, namef_val.length-1);
-    nameTwo = namel_val.substring(0, namel_val.length-1);
+    nameOne = namef_val.substring(0, namef_val.length - 1);
+    nameTwo = namel_val.substring(0, namel_val.length - 1);
     let check = confirm('Confirm deletion of contact: ' + nameOne + ' ' + nameTwo);
     if (check === true) {
         document.getElementById("row" + no + "").outerHTML = "";
@@ -520,7 +524,7 @@ function delete_row(no) {
         try {
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    
+
                     console.log("Contact has been deleted");
                     loadContacts();
                 }
@@ -541,26 +545,26 @@ function searchContacts() {
     const tr = table.getElementsByTagName("tr");// Table Row
 
     for (let i = 0; i < tr.length; i++) {
-      const td_fn = tr[i].getElementsByTagName("td")[0];// Table Data: First Name
-      const td_ln = tr[i].getElementsByTagName("td")[1];// Table Data: Last Name
+        const td_fn = tr[i].getElementsByTagName("td")[0];// Table Data: First Name
+        const td_ln = tr[i].getElementsByTagName("td")[1];// Table Data: Last Name
 
-      if (td_fn && td_ln) {
-        const txtValue_fn = td_fn.textContent || td_fn.innerText;
-        const txtValue_ln = td_ln.textContent || td_ln.innerText;
-        tr[i].style.display = "none";
-          
-        for (selection of selections) {
-          if (txtValue_fn.toUpperCase().indexOf(selection) > -1) {
-            tr[i].style.display = "";        
-          } 
-          if (txtValue_ln.toUpperCase().indexOf(selection) > -1) {
-            tr[i].style.display = "";
-          }
+        if (td_fn && td_ln) {
+            const txtValue_fn = td_fn.textContent || td_fn.innerText;
+            const txtValue_ln = td_ln.textContent || td_ln.innerText;
+            tr[i].style.display = "none";
+
+            for (selection of selections) {
+                if (txtValue_fn.toUpperCase().indexOf(selection) > -1) {
+                    tr[i].style.display = "";
+                }
+                if (txtValue_ln.toUpperCase().indexOf(selection) > -1) {
+                    tr[i].style.display = "";
+                }
+            }
         }
-      }
     }
 }
-   
+
 
 function clickLogin() {
     var log = document.getElementById("login");
@@ -625,7 +629,7 @@ function validLoginForm(logName, logPass) {
     if ((logNameErr || logPassErr) == true) {
         return false;
     }
-   return true;
+    return true;
 
 }
 
@@ -684,11 +688,72 @@ function validSignUpForm(fName, lName, user, pass) {
     }
 
     if ((fNameErr || lNameErr || userErr || passErr) == true) {
-       return false;
-     
+        return false;
+
     }
-   
+
+    return true;
+}
+
+function validAddContact(firstName,lastName,phone, email) {
+
+    var  fNameErr = lNameErr=phoneErr = emailErr = true;
+
+    if (firstName == "") {
+        console.log("FIRST NAME IS BLANK");
+    }
+    else {
+        console.log("first name IS VALID");
+        fNameErr = false;
+    }
+
+    if (lastName == "") {
+        console.log("LAST NAME IS BLANK");
+    }
+    else {
+        console.log("LAST name IS VALID");
+        lNameErr = false;
+    }
+
+    if (phone == "") {
+        console.log("PHONE IS BLANK");
+    }
+    else {
+        var regex = /^[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/;
+
+        if (regex.test(phone) == false) {
+            console.log("PHONE IS NOT VALID");
+        }
+
+        else {
+
+            console.log("PHONE IS VALID");
+            phoneErr = false;
+        }
+    }
+    ///////////////////////////////////////////////////////////////////
+    if (email == "") {
+        console.log("EMAIL IS BLANK");
+    }
+    else {
+        var regex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+        if (regex.test(email) == false) {
+            console.log("EMAIL IS NOT VALID");
+        }
+
+        else {
+
+            console.log("EMAIL IS VALID");
+            emailErr = false;
+        }
+    }
+
+    if ((phoneErr || emailErr || fNameErr || lNameErr) == true) {
+        return false;
+
+    }
+
     return true;
 
-    
 }
