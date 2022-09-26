@@ -503,8 +503,8 @@ function save_row(no) {
 function delete_row(no) {
     var namef_val = document.getElementById("first_Name" + no).innerText;
     var namel_val = document.getElementById("last_Name" + no).innerText;
-    nameOne = namef_val.substring(0, namef_val.length - 1);
-    nameTwo = namel_val.substring(0, namel_val.length - 1);
+    nameOne = namef_val.substring(0, namef_val.length);
+    nameTwo = namel_val.substring(0, namel_val.length);
     let check = confirm('Confirm deletion of contact: ' + nameOne + ' ' + nameTwo);
     if (check === true) {
         document.getElementById("row" + no + "").outerHTML = "";
