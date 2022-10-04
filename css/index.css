@@ -43,6 +43,7 @@ body {
     text-align: center;
     margin-bottom: auto;
     display: block;
+    text-decoration-line: none;
 }
 
 /* For mobile devices */
