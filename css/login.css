@@ -10,9 +10,9 @@
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     overflow: hidden;
-    display: block;
-    height: 340px;
+    height: 360px;
     transition: .6s;
+
 }
 
 .input-field {
@@ -62,6 +62,7 @@
     background-image: white;
 }
 
+/* username and password criteria message */
 #explanation,
 #explanationUser {
     display: none;
@@ -70,7 +71,6 @@
     bottom: 1px;
     text-align: center;
     font-family: 'Montserrat';
-
 }
 
 #explanation>p {
@@ -78,21 +78,22 @@
     bottom: 10px;
 }
 
+/* error messaging formatting */
 #loginResult {
     position: relative;
     bottom: 175px;
-    color:rgb(203, 55, 21); 
+    color: rgb(203, 55, 21);
     font-family: 'Montserrat';
 }
 
 #signupResult {
     position: relative;
     bottom: 350px;
-    color:rgb(203, 55, 21); 
+    color: rgb(203, 55, 21);
     font-family: 'Montserrat';
 }
 
-/* Add a green text color and a checkmark when the requirements are right */
+/* Add a green text color and a smile when the requirements are right */
 .valid {
     color: #009345;
 }
@@ -103,7 +104,7 @@
     content: "😁";
 }
 
-/* Add a red text color and an "x" when the requirements are wrong */
+/* Add a red text color and a sad face when the requirements are wrong */
 .invalid {
     color: red;
 }
@@ -114,19 +115,18 @@
     content: "☹️";
 }
 
-.opt
-{
+/* for the optional number, hyphen, and underscore in username signup field */
+.opt {
     color: yellow;
 }
 
-.opt:before
-{
+.opt:before {
     position: relative;
     left: -35px;
     content: "😐";
-    
 }
 
+/* bar surrounding login-signup buttons */
 .button-box {
     width: 270px;
     margin: auto;
@@ -136,6 +136,7 @@
     box-shadow: 0 0 25px 0 rgba(137, 114, 97, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
+/* login and signup buttons */
 .toggle-btn {
     padding: 10px 42px;
     cursor: pointer;
@@ -151,6 +152,7 @@
     text-align: center;
 }
 
+/* brown slider at top of form */
 #btn {
     top: 0;
     left: 0;
@@ -166,16 +168,8 @@
     position: relative;
 }
 
-#loginButton {
-    position: relative;
-    bottom: -50px;
-}
-
-#loginName {
-    position: relative;
-    bottom: -50px;
-}
-
+#loginButton,
+#loginName,
 #loginPassword {
     position: relative;
     bottom: -50px;
@@ -183,16 +177,12 @@
 
 #signup {
     position: relative;
-    left: 450px;
+    left: -400px;
     top: -172px;
 }
 
 .submit-btn:hover {
     background: #cdab91;
-}
-
-.signup-form {
-    left: 450px;
 }
 
 /* body formatting */
@@ -212,10 +202,6 @@ body {
     width: 10%;
     height: 10%;
     left: 0;
-}
-
-.btn:hover {
-    color: #897261;
 }
 
 /* For mobile devices */

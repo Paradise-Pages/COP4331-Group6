@@ -10,12 +10,9 @@ body {
 
 /* logo formatting */
 #logo {
-    padding-left: 1%;
-    padding-top: 1%;
     width: 10%;
     height: 10%;
     left: 0;
-    top: 0;
 }
 
 /* button formatting */
@@ -32,7 +29,7 @@ body {
     margin:0.6em 0.3em 0.3em 0;
     float: right;
 }
-.btn:hover{
+.btn:hover,#welcome:hover {
     color:#897261;
 }
 
@@ -45,6 +42,8 @@ body {
     font-size: 5vw;
     text-align: center;
     margin-bottom: auto;
+    display: block;
+    text-decoration-line: none;
 }
 
 /* For mobile devices */

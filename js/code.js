@@ -58,175 +58,6 @@ function doLogin() {
     }
 }
 
-function passExp() {
-    let passform = document.getElementById("password");
-    let totalform = document.getElementById("wholeForm");
-    let numInput = document.getElementById("passNum");
-    let lettInput = document.getElementById("passLett");
-    let specInput = document.getElementById("passSpec");
-    let lenInput = document.getElementById("passLen");
-
-    //password message displays
-    passform.addEventListener("focus", () => {
-        document.getElementById("explanation").style.display = "block";
-        totalform.style.minHeight = "570px";
-    });
-
-    //password message goes away
-    passform.onblur = function () {
-        document.getElementById("explanation").style.display = "none";
-        totalform.style.minHeight = "360px";
-    }
-
-    //password validation
-    passform.onkeyup = function () {
-        var nums = /[0-9]/g;
-        var lett = /[a-zA-Z]/g;
-        var spec = /[!@#$%^&*]/g;
-
-        //check length
-        if (passform.value.length >= 8 && passform.value.length <= 32) {
-            lenInput.classList.remove("invalid");
-            lenInput.classList.add("valid");
-        }
-
-        else {
-            lenInput.classList.remove("valid");
-            lenInput.classList.add("invalid");
-        }
-
-        //check numbers
-        if (passform.value.match(nums)) {
-            numInput.classList.remove("invalid");
-            numInput.classList.add("valid");
-        }
-
-        else {
-            numInput.classList.remove("valid");
-            numInput.classList.add("invalid");
-        }
-
-        //check letters
-        if (passform.value.match(lett)) {
-            lettInput.classList.remove("invalid");
-            lettInput.classList.add("valid");
-        }
-
-        else {
-            lettInput.classList.remove("valid");
-            lettInput.classList.add("invalid");
-        }
-
-        //check special characters
-        if (passform.value.match(spec)) {
-            specInput.classList.remove("invalid");
-            specInput.classList.add("valid");
-        }
-
-        else {
-            specInput.classList.remove("valid");
-            specInput.classList.add("invalid");
-        }
-    }
-}
-
-function userExp() {
-    let userform = document.getElementById("username");
-    let totalform = document.getElementById("wholeForm");
-    let numInput = document.getElementById("userNum");
-    let lettInput = document.getElementById("userLett");
-    let lenInput = document.getElementById("userLen");
-    let hypInput = document.getElementById("userHyp");
-    let undInput = document.getElementById("userUnd");
-
-    let req = 0;
-
-    //password message displays
-    userform.onfocus = function () {
-        document.getElementById("explanationUser").style.display = "block";
-        totalform.style.minHeight = "675px";
-    }
-
-    //password message goes away
-    userform.onblur = function () {
-        document.getElementById("explanationUser").style.display = "none";
-        totalform.style.minHeight = "360px";
-    }
-
-    //password validation
-    userform.onkeyup = function () {
-        var nums = /[0-9]/g;
-        var lett = /[a-zA-Z]/g;
-        var hyp = /[-]/g;
-        var und = /[_]/g;
-
-        //check length
-        if ((userform.value.length >= 3 && userform.value.length <= 18)) {
-            lenInput.classList.remove("invalid");
-            lenInput.classList.add("valid");
-
-        }
-
-        else {
-            lenInput.classList.remove("valid");
-            lenInput.classList.add("invalid");
-
-        }
-
-        //check letters
-        if ((userform.value.match(lett))) {
-
-            lettInput.classList.remove("invalid");
-            lettInput.classList.add("valid");
-        }
-
-        else {
-
-            lettInput.classList.remove("valid");
-            lettInput.classList.add("invalid");
-        }
-
-        //check numbers
-        if (userform.value.match(nums)) {
-            numInput.classList.remove("opt");
-            numInput.classList.add("valid");
-        }
-
-        else {
-            numInput.classList.remove("valid");
-            numInput.classList.add("opt");
-        }
-
-        //check hyphens
-        if (userform.value.match(hyp)) {
-            hypInput.classList.remove("opt");
-            hypInput.classList.add("valid");
-        }
-
-        else {
-            hypInput.classList.remove("valid");
-            hypInput.classList.add("opt");
-        }
-
-        //check underscores
-        if (userform.value.match(und)) {
-            undInput.classList.remove("opt");
-            undInput.classList.add("valid");
-        }
-
-        else {
-            undInput.classList.remove("valid");
-            undInput.classList.add("opt");
-        }
-    }
-
-    if (req >= 2) {
-        return true;
-    }
-
-    return false;
-}
-
 function doSignup() {
     firstName = document.getElementById("firstName").value;
     lastName = document.getElementById("lastName").value;
@@ -355,7 +186,7 @@ function addContact() {
     let phonenumber = document.getElementById("contactTextNumber").value;
     let emailaddress = document.getElementById("contactTextEmail").value;
 
-    if (!validAddContact(firstname,lastname,phonenumber, emailaddress)) {
+    if (!validAddContact(firstname, lastname, phonenumber, emailaddress)) {
         console.log("INVALID FIRST NAME, LAST NAME, PHONE, OR EMAIL SUBMITTED");
         return;
     }
@@ -570,13 +401,14 @@ function clickLogin() {
     var log = document.getElementById("login");
     var reg = document.getElementById("signup");
     var but = document.getElementById("btn");
+
     log.style.left = "-400px";
     reg.style.left = "0px";
     but.style.left = "130px";
-
 }
 
 function clickRegister() {
+
     var log = document.getElementById("login");
     var reg = document.getElementById("signup");
     var but = document.getElementById("btn");
@@ -652,7 +484,7 @@ function validSignUpForm(fName, lName, user, pass) {
         console.log("LAST name IS VALID");
         lNameErr = false;
     }
-    ///////////////////////////////////////////////////////////////////
+
     if (user == "") {
         console.log("USERNAME IS BLANK");
     }
@@ -695,9 +527,9 @@ function validSignUpForm(fName, lName, user, pass) {
     return true;
 }
 
-function validAddContact(firstName,lastName,phone, email) {
+function validAddContact(firstName, lastName, phone, email) {
 
-    var  fNameErr = lNameErr=phoneErr = emailErr = true;
+    var fNameErr = lNameErr = phoneErr = emailErr = true;
 
     if (firstName == "") {
         console.log("FIRST NAME IS BLANK");
@@ -731,7 +563,7 @@ function validAddContact(firstName,lastName,phone, email) {
             phoneErr = false;
         }
     }
-    ///////////////////////////////////////////////////////////////////
+
     if (email == "") {
         console.log("EMAIL IS BLANK");
     }

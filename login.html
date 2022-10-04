@@ -15,31 +15,33 @@
 </head>
 
 <body>
-  <a href="index.html"><img id="logo" src="images/icon.png" alt="Logo for Paradise Pages. Consists of a palm tree emerging from the spine of a book. Established 2022"></a>
+  <a href="index.html"><img id="logo" src="images/icon.png"
+      alt="Logo for Paradise Pages. Consists of a palm tree emerging from the spine of a book. Established 2022"></a>
   <br /><br /><br /><br />
   <div class="form" id="wholeForm">
     <div class="button-box">
       <div id="btn"></div>
-      <button type="button" class="toggle-btn" onclick="clickRegister()">Login</button>
+      <button type="button" class="toggle-btn" onclick="clickRegister()" id="loginSlider">Login</button>
       <button type="button" class="toggle-btn" onclick="clickLogin()">Signup</button>
     </div>
     <form id="login" class="input-form">
-      <input type="text" class="input-field" id="loginName" placeholder="username" name="username" required pattern="(?=.*[a-zA-Z])[a-zA-Z0-9-_]{3,18}$" 
-      oninput="this.setCustomValidity('')" />
-      <input type="password" class="input-field" id="loginPassword" placeholder="password" name="password" required pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}"/>
+      <input type="text" class="input-field" id="loginName" placeholder="username" name="username" required
+        pattern="(?=.*[a-zA-Z])[a-zA-Z0-9-_]{3,18}$" />
+      <input type="password" class="input-field" id="loginPassword" placeholder="password" name="password" required
+        pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}" />
       <button type="button" id="loginButton" class="submit-btn" onclick="doLogin()">Login</button>
       <span class="text" id="loginResult"></span>
     </form>
+
     <form id="signup" class="input-form">
       <input type="text" class="input-field" id="firstName" placeholder="first&nbsp;name" name="firstName" required />
       <input type="text" class="input-field" id="lastName" placeholder="last&nbsp;name" name="lastName" required />
       <input type="text" class="input-field" id="username" placeholder="username" name="login" required
         pattern="(?=.*[a-zA-Z])[a-zA-Z0-9-_]{3,18}"
-        title="Must be between 3-13 characters and must contain at least one letter" onfocus="userExp()" />
+        title="Must be between 3-13 characters and must contain at least one letter" />
       <input type="password" class="input-field" id="password" placeholder="password" name="password" required
         pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}"
-        title="Must be between 8-32 characters and must contain at least one number and one special character"
-        onfocus="passExp()" />
+        title="Must be between 8-32 characters and must contain at least one number and one special character" />
       <button type="button" id="signupButton" class="submit-btn" onclick="doSignup()">Signup</button><br />
       <span class="text" style="color:rgb(203, 55, 21); font-family: 'Montserrat';" id="signupResult"></span>
       <div id="explanation">
@@ -77,6 +79,177 @@
         </p>
       </div>
     </form>
+    <!--code for username criteria message-->
+    <script>
+      let fNameField = document.getElementById("firstName");
+      let lNameField = document.getElementById("lastName");
+      let userform = document.getElementById("username");
+      let totalform = document.getElementById("wholeForm");
+      let numInput = document.getElementById("userNum");
+      let lettInput = document.getElementById("userLett");
+      let lenInput = document.getElementById("userLen");
+      let hypInput = document.getElementById("userHyp");
+      let undInput = document.getElementById("userUnd");
+
+      // to activate transitions
+      fNameField.onclick = function () {
+        totalform.style.minHeight = "360.001px";
+      }
+
+      lNameField.onclick = function () {
+        totalform.style.minHeight = "360.001px";
+      }
+  
+      //password message displays
+      userform.onfocus = function () {
+        document.getElementById("explanationUser").style.display = "block";
+        totalform.style.minHeight = "675px";
+      }
+
+      //password message goes away
+      userform.onblur = function () {
+        document.getElementById("explanationUser").style.display = "none";
+        totalform.style.minHeight = "360px";
+      }
+
+      //password validation
+      userform.onkeyup = function () {
+        var nums = /[0-9]/g;
+        var lett = /[a-zA-Z]/g;
+        var hyp = /[-]/g;
+        var und = /[_]/g;
+
+        //check length
+        if ((userform.value.length >= 3 && userform.value.length <= 18)) {
+          lenInput.classList.remove("invalid");
+          lenInput.classList.add("valid");
+
+        }
+
+        else {
+          lenInput.classList.remove("valid");
+          lenInput.classList.add("invalid");
+
+        }
+
+        //check letters
+        if ((userform.value.match(lett))) {
+
+          lettInput.classList.remove("invalid");
+          lettInput.classList.add("valid");
+        }
+
+        else {
+
+          lettInput.classList.remove("valid");
+          lettInput.classList.add("invalid");
+        }
+
+        //check numbers
+        if (userform.value.match(nums)) {
+          numInput.classList.remove("opt");
+          numInput.classList.add("valid");
+        }
+
+        else {
+          numInput.classList.remove("valid");
+          numInput.classList.add("opt");
+        }
+
+        //check hyphens
+        if (userform.value.match(hyp)) {
+          hypInput.classList.remove("opt");
+          hypInput.classList.add("valid");
+        }
+
+        else {
+          hypInput.classList.remove("valid");
+          hypInput.classList.add("opt");
+        }
+
+        // check underscores
+        if (userform.value.match(und)) {
+          undInput.classList.remove("opt");
+          undInput.classList.add("valid");
+        }
+
+        else {
+          undInput.classList.remove("valid");
+          undInput.classList.add("opt");
+        }
+      }
+    </script>
+    <!--code for password criteria message-->
+    <script>
+      let passform = document.getElementById("password");
+      let pNumInput = document.getElementById("passNum");
+      let pLettInput = document.getElementById("passLett");
+      let pSpecInput = document.getElementById("passSpec");
+      let pLenInput = document.getElementById("passLen");
+
+      //password message displays
+      passform.onfocus = function () {
+        document.getElementById("explanation").style.display = "block";
+        totalform.style.minHeight = "570px";
+      };
+
+      //password message goes away
+      passform.onblur = function () {
+        document.getElementById("explanation").style.display = "none";
+        totalform.style.minHeight = "360px";
+      }
+
+      //password validation
+      passform.onkeyup = function () {
+        var nums = /[0-9]/g;
+        var lett = /[a-zA-Z]/g;
+        var spec = /[!@#$%^&*]/g;
+
+        //check length
+        if (passform.value.length >= 8 && passform.value.length <= 32) {
+          pLenInput.classList.remove("invalid");
+          pLenInput.classList.add("valid");
+        }
+
+        else {
+          pLenInput.classList.remove("valid");
+          pLenInput.classList.add("invalid");
+        }
+
+        //check numbers
+        if (passform.value.match(nums)) {
+          pNumInput.classList.remove("invalid");
+          pNumInput.classList.add("valid");
+        }
+
+        else {
+          pNumInput.classList.remove("valid");
+          pNumInput.classList.add("invalid");
+        }
+
+        //check letters
+        if (passform.value.match(lett)) {
+          pLettInput.classList.remove("invalid");
+          pLettInput.classList.add("valid");
+        }
+
+        else {
+          pLettInput.classList.remove("valid");
+          pLettInput.classList.add("invalid");
+        }
+
+        //check special characters
+        if (passform.value.match(spec)) {
+          pSpecInput.classList.remove("invalid");
+          pSpecInput.classList.add("valid");
+        }
+
+        else {
+          pSpecInput.classList.remove("valid");
+          pSpecInput.classList.add("invalid");
+        }
+      }
+    </script>
   </div>
 </body>
 
