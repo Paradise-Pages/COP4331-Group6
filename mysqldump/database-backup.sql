@@ -45,12 +45,6 @@ CREATE TABLE `Contacts` (
 -- Dumping data for table `Contacts`
 --
 
-LOCK TABLES `Contacts` WRITE;
-/*!40000 ALTER TABLE `Contacts` DISABLE KEYS */;
-INSERT INTO `Contacts` VALUES (1,'Jan','Darge','3135556789','jandarge@email.com',1),(2,'Darge','Jan','3135555789','dargejan@email.com',2),(3,'Group','Six','6666666666','group6@email.com',6),(4,'my','sql','1234561234','mysql@email.com',3);
-/*!40000 ALTER TABLE `Contacts` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `Users`
 --
@@ -73,13 +67,6 @@ CREATE TABLE `Users` (
 --
 -- Dumping data for table `Users`
 --
-
-LOCK TABLES `Users` WRITE;
-/*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'2022-08-25 18:15:12','2022-08-25 18:15:12','Jan','Darge','JanD','COP4331'),(2,'2022-08-25 18:15:52','2022-08-25 18:15:52','Darge','Jan','DargeJ','mysqlnovice');
-/*!40000 ALTER TABLE `Users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
